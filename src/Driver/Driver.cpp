@@ -35,7 +35,7 @@ string userSetName;
 
 		if(userMenuInput.find('y') != string::npos || userMenuInput.find('Y') != string::npos){//string::npos = -1 || IF TRUE sets name
 			playerCharacter.setCharacterName(userSetName);
-				cout << "You are now known as " << playerCharacter.getCharacterName() << "!" << endl;
+				cout << "You are now known as " << playerCharacter.getCharacterName() << "! (Ryley was here)" << endl;
 				cout << endl;
 				cout << endl;
 				cout << endl;
