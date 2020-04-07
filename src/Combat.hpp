@@ -22,7 +22,7 @@ class Combat{
         int blockTop();//RETURNs 2
         int blockRight();//RETURNS 1
 
-        bool blockCheck(int playerCurrentSwing, int NPCCurrentSwing);//TRUE IF BLOCK
+        bool blockCheck(int playerCurrentSwing, int NPCCurrentBlock);//TRUE IF BLOCK
         bool overheadMissChance();//70% chance to miss TRUE IF HIT
     private:
         int turn = 0;

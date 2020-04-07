@@ -56,8 +56,8 @@ int Combat::blockRight(){
     return 1;
 }
 
-bool Combat::blockCheck(int playerCurrentSwing, int NPCCurrentSwing){
-    if(playerCurrentSwing == NPCCurrentSwing){
+bool Combat::blockCheck(int playerCurrentSwing, int NPCCurrentBlock){
+    if(playerCurrentSwing == NPCCurrentBlock){
         return true;
     }
     else{

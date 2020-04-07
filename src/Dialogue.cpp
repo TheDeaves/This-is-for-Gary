@@ -40,6 +40,10 @@ string Dialogue::getVerifyName(){
     return ". Is this correct?";
 }
 
-string Dialogue::playerChooseDirection(){
+string Dialogue::playerChooseAttackDirection(){
     return "Which direction would you like to swing? (left, overhead, right)";
+}
+
+string Dialogue::playerChooseBlockDirection(){
+    return "Which direction would you like to block? (left, overhead, right)";
 }

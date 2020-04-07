@@ -11,7 +11,8 @@ class Dialogue{
         void loadStoryLineFile();
         string getWelcome();
         string getVerifyName();
-        string playerChooseDirection();
+        string playerChooseAttackDirection();
+        string playerChooseBlockDirection();
 
     private:
     string storyLine[25];
