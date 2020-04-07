@@ -120,8 +120,9 @@ void Combat::playerAttackturn(string playerDirectionAttackChoice){
 	else if(!blockCheck(playerCurrentSwing, NPCCurrentBlock)){//HIT
 		cout << "You hit the enemy!" << endl;
 
-        Sleep(1000);
+
 	}
+        Sleep(1000);
 }
 
 void Combat::playerDefendTurn(string playerDirectionBlockChoice){
