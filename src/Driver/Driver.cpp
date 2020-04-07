@@ -30,12 +30,12 @@ string userSetName;
 		while(true){//NAME LOOP
 			cin >> userSetName;
 	
-		cout << userSetName << d.getVerifyName() << endl;
+		cout << d.getVerifyName() << userSetName << "? \" he mutters, the fear apparent on his face. You notice no one else in the arena with the two of you... (yes to continue)" << endl;
 			cin >> userMenuInput;
 
 		if(userMenuInput.find('y') != string::npos || userMenuInput.find('Y') != string::npos){//string::npos = -1 || IF TRUE sets name
 			playerCharacter.setCharacterName(userSetName);
-				cout << "You are now known as " << playerCharacter.getCharacterName() << "! (Ryley was here)" << endl;
+				cout << "Before you can ask him his name in return, the man screams and lunges at you! " << "! (Ryley was here)" << endl;
 				cout << endl;
 				cout << endl;
 				cout << endl;
@@ -56,10 +56,7 @@ string userSetName;
 	Character NPC;
 	string playerDirectionAttackChoice;
 	string playerDirectionBlockChoice;
-	int playerCurrentSwing = 0;
-	int NPCCurrentSwing = 0;
-	int playerCurrentBlock = 0;
-	int NPCCurrentBlock = 0;
+
 	bool swingTopMissChance = false;//TRUE IF HIT
 
 	while(true){//COMBAT LOOP

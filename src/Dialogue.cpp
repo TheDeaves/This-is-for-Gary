@@ -15,7 +15,7 @@ void Dialogue::loadStoryLineFile(){
     ifstream storyInFile;
     string storyString;
 
-    storyInFile.open("Texts/Storyline.txt");
+    storyInFile.open("../Texts/Storyline.txt");
 
     if(!storyInFile.is_open()){
         cout << "Storyline file failed to open." << endl;
@@ -33,11 +33,11 @@ void Dialogue::loadStoryLineFile(){
 }
 
 string Dialogue::getWelcome(){
-    return "Welcome! What would you like to be called?";
+    return "A dirty man walks out beside you into the desert coliseum and he quickly asks your name...";
 }
 
 string Dialogue::getVerifyName(){
-    return ". Is this correct?";
+    return "\"Did you say ";
 }
 
 string Dialogue::playerChooseAttackDirection(){
