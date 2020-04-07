@@ -24,10 +24,16 @@ class Combat{
 
         bool blockCheck(int playerCurrentSwing, int NPCCurrentBlock);//TRUE IF BLOCK
         bool overheadMissChance();//70% chance to miss TRUE IF HIT
+
+        void playerAttackturn(string playerDirectionAttackChoice);
+        void playerDefendTurn(string playerDirectionBlockChoice);
     private:
         int turn = 0;
-        int playerCurrentSwing;
-        int NPCCurrentSwing;
+        int playerCurrentSwing = 0;
+        int NPCCurrentSwing = 0;
         int randomNum = 0;
-        int swingTopMissChance;
+        int swingTopMissChanceNum = 0;
+        int NPCCurrentBlock = 0;
+        bool swingTopMissChance = false;
+        int playerCurrentBlock = 0;
 };
