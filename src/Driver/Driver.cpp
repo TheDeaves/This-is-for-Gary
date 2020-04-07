@@ -65,21 +65,23 @@ string userSetName;
 			cout << endl;
 		cout << d.playerChooseDirection() << endl;
 			cin >> playerDirectionChoice;//USER ENTERS LEFT, OVERHEAD, RIGHT 
-			cout << endl;
+
+			cout << endl; 
+			cout << endl;//THIS IS FOR FORMATTING
 			cout << endl;
 
 				if(playerDirectionChoice.find("overhead") != string::npos){
 					playerCurrentSwing = combat.swingTop();
 					swingTopMissChance = combat.overheadMissChance();
-						//cout << "SWUNG OVERHEAD " << swingTopMissChance << endl;
+						cout << "You viscously swing your weapon at the enemies head..."<< endl;
 				}
 				else if(playerDirectionChoice.find("left") != string::npos){
 					playerCurrentSwing = combat.swingLeft();
-						//cout << "SWUNG LEFT " << playerCurrentSwing << endl;
+						cout << "You swing your weapon at the enemies left side..." << endl;
 				}
 				else if(playerDirectionChoice.find("right") != string::npos){
 					playerCurrentSwing = combat.swingRight();
-						//cout << "SWUNG RIGHT " << playerCurrentSwing << endl;
+						cout << "You swing your weapon at the enemies left side..." << endl;
 				}
 				else{
 					playerCurrentSwing = 1;
@@ -90,16 +92,16 @@ string userSetName;
 
 			if(combat.blockCheck(playerCurrentSwing, NPCCurrentSwing) && !swingTopMissChance){//IF BLOCKED OR MISS
 				if(combat.blockCheck(playerCurrentSwing, NPCCurrentSwing)){
-					cout << "BLOCKED!" << endl;
+					cout << "The enemy brings their shield up and blocks!" << endl;
 				}
 			}else if(combat.blockCheck(playerCurrentSwing, NPCCurrentSwing) && playerCurrentSwing == 2){
-				cout << "BLOCKED" << endl;
+				cout << "The enemy parries your blow!" << endl;
 			}
 			else if(playerCurrentSwing == 2 && !swingTopMissChance){
-					cout << "MISSED!" << endl;
+					cout << "You swing wide and miss!" << endl;
 			}
 			else if(!combat.blockCheck(playerCurrentSwing, NPCCurrentSwing)){
-				cout << "HIT!" << endl;
+				cout << "You hit the enemy!" << endl;
 			}
 			
 			cout << endl;
