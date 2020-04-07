@@ -112,8 +112,48 @@ string userSetName;
 			cout << endl;//THIS IS FOR FORMATTING
 			cout << endl;
 			
-			//cout << d.playerChooseBlockDirection() << endl;
-			//	cin >> playerDirectionBlockChoice;
+			cout << d.playerChooseBlockDirection() << endl;//PLAYER CHOOSES BLOCK DIRECTION
+				cin >> playerDirectionBlockChoice;
+
+					if(playerDirectionBlockChoice.find("overhead") != string::npos){
+						playerCurrentBlock = combat.blockTop();
+							cout << "You attempt to protect your head..."<< endl;
+					}
+					else if(playerDirectionBlockChoice.find("left") != string::npos){
+						playerCurrentBlock = combat.blockLeft();
+							cout << "You attempt to protect your left side..." << endl;
+					}
+					else if(playerDirectionBlockChoice.find("right") != string::npos){
+						playerCurrentBlock = combat.blockRight();
+							cout << "You attempt to protect your right side..." << endl;
+					}
+					else{
+							cout << "You attempt to protect your left side..." << endl;
+						playerCurrentBlock = 1;
+					}
+				NPCCurrentSwing = combat.getAnotherRandom();
+
+			cout << "NPC SWING: " << NPCCurrentSwing << endl;
+			cout << "PLAYER BLOCK: " << playerCurrentBlock << endl;
+
+			if(combat.blockCheck(NPCCurrentSwing, playerCurrentBlock) && !swingTopMissChance){//IF BLOCKED OR MISS
+				if(combat.blockCheck(NPCCurrentSwing, playerCurrentBlock)){//BLOCK
+					cout << "You bring your shield up at the last second and block!" << endl;
+				}
+			}else if(combat.blockCheck(NPCCurrentSwing, playerCurrentBlock) && playerCurrentSwing == 2){//BLOCK OVERHEAD
+				cout << "You parry the enemy blade away from youe head!" << endl;
+			}
+			else if(NPCCurrentSwing == 2 && !swingTopMissChance){//MISS OVERHEAD
+					cout << "The enemy widly misses!" << endl;
+			}
+			else if(!combat.blockCheck(NPCCurrentSwing, playerCurrentBlock)){//HIT
+				cout << "They enemy hits you!" << endl;
+			}
+
+			cout << endl;
+			cout << endl;//THIS IS FOR FORMATTING
+			cout << endl;
+
 			
 		combat.increTurn();//TURN INCREMENT
 
