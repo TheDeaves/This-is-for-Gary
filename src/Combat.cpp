@@ -80,24 +80,31 @@ void Combat::playerAttackturn(string playerDirectionAttackChoice){
 	if(playerDirectionAttackChoice.find("overhead") != string::npos){
 		this->playerCurrentSwing = swingTop();
 			this->swingTopMissChance = overheadMissChance();
-				cout << "You viscously swing your weapon at the enemies head..."<< endl;
+				cout << "You viscously swing your weapon at the enemies head";
 	}
 	else if(playerDirectionAttackChoice.find("left") != string::npos){
 		this->playerCurrentSwing = swingLeft();
-			cout << "You swing your weapon at the enemies left side..." << endl;
+			cout << "You swing your weapon at the enemies left side";
 	}
 	else if(playerDirectionAttackChoice.find("right") != string::npos){
 		this->playerCurrentSwing = swingRight();
-			cout << "You swing your weapon at the enemies right side..." << endl;
+			cout << "You swing your weapon at the enemies right side";
 	}
 	else{
-		cout << "You swing your weapon at the enemies left side..." << endl;
+		cout << "You swing your weapon at the enemies left side";
 			this->playerCurrentSwing = 1;
 	}
+
+        for(int i = 0; i < 3; i++){
+            cout << ".";
+            Sleep(1000);
+        }
+            cout << endl;
+
 		this->NPCCurrentBlock = getAnotherRandom();
 
-		cout << "NPC BLOCK: " << this->NPCCurrentBlock << endl;
-		cout << "PLAYER SWING: " << this->playerCurrentSwing << endl;
+		//cout << "NPC BLOCK: " << this->NPCCurrentBlock << endl;   TESTING PURPOSES
+		//cout << "PLAYER SWING: " << this->playerCurrentSwing << endl;
 
 
 	if(blockCheck(playerCurrentSwing, NPCCurrentBlock) && !this->swingTopMissChance){//IF BLOCKED OR MISS
@@ -112,30 +119,40 @@ void Combat::playerAttackturn(string playerDirectionAttackChoice){
 	}
 	else if(!blockCheck(playerCurrentSwing, NPCCurrentBlock)){//HIT
 		cout << "You hit the enemy!" << endl;
+
+        Sleep(1000);
 	}
 }
 
 void Combat::playerDefendTurn(string playerDirectionBlockChoice){
     if(playerDirectionBlockChoice.find("overhead") != string::npos){
 		this->playerCurrentBlock = blockTop();
-			cout << "You attempt to protect your head..."<< endl;
+			cout << "You attempt to protect your head";
 	}
 	else if(playerDirectionBlockChoice.find("left") != string::npos){
 		this->playerCurrentBlock = blockLeft();
-		    cout << "You attempt to protect your left side..." << endl;
+		    cout << "You attempt to protect your left side";
 	}
 	else if(playerDirectionBlockChoice.find("right") != string::npos){
 		this->playerCurrentBlock = blockRight();
-			cout << "You attempt to protect your right side..." << endl;
+			cout << "You attempt to protect your right side";
 	}
 	else{
-		cout << "You attempt to protect your left side..." << endl;
+		cout << "You attempt to protect your left side";
 			this->playerCurrentBlock = 1;
 	}
+
+        for(int i = 0; i < 3; i++){
+            cout << ".";
+            Sleep(1000);
+        }
+            cout << endl;
+
 		this->NPCCurrentSwing = getAnotherRandom();
 
-		cout << "NPC SWING: " << this->NPCCurrentSwing << endl;
-		cout << "PLAYER BLOCK: " << this->playerCurrentBlock << endl;
+
+	//	cout << "NPC SWING: " << this->NPCCurrentSwing << endl;   TESTING PURPOSES
+	//	cout << "PLAYER BLOCK: " << this->playerCurrentBlock << endl;
 
 			if(blockCheck(this->NPCCurrentSwing, this->playerCurrentBlock) && !this->swingTopMissChance){//IF BLOCKED OR MISS
 				if(blockCheck(this->NPCCurrentSwing, this->playerCurrentBlock)){//BLOCK
@@ -150,5 +167,6 @@ void Combat::playerDefendTurn(string playerDirectionBlockChoice){
 			else if(!blockCheck(this->NPCCurrentSwing, this->playerCurrentBlock)){//HIT
 				cout << "They enemy hits you!" << endl;
 			}
+            Sleep(1000);
 
 }

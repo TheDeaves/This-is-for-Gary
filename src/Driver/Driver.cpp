@@ -66,7 +66,8 @@ string userSetName;
 
 		cout << "Round " << combat.getTurn() << endl;
 		cout << d.playerChooseAttackDirection() << endl;
-			cin >> playerDirectionAttackChoice;//USER ENTERS LEFT, OVERHEAD, RIGHT 
+			cin >> playerDirectionAttackChoice;	//USER ENTERS LEFT, OVERHEAD, RIGHT
+												//IF USER ENTERS 'OTHER' THEY SWING LEFT
 
 			cout << endl; 
 			cout << endl;//THIS IS FOR FORMATTING
@@ -78,14 +79,15 @@ string userSetName;
 			cout << endl;//THIS IS FOR FORMATTING
 			cout << endl;
 			
-			cout << d.playerChooseBlockDirection() << endl;//PLAYER CHOOSES BLOCK DIRECTION
-				cin >> playerDirectionBlockChoice;
-
+			cout << d.playerChooseBlockDirection() << endl;
+				cin >> playerDirectionBlockChoice;	//USER ENTERS LEFT, OVERHEAD, RIGHT
+													//IF USER ENTERS 'OTHER' THEY SWING LEFT
 			cout << endl;
 			cout << endl;//THIS IS FOR FORMATTING
 			cout << endl;
-			
+
 				combat.playerDefendTurn(playerDirectionBlockChoice);
+
 
 			cout << endl;
 			cout << endl;//THIS IS FOR FORMATTING
