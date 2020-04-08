@@ -30,8 +30,8 @@ class Combat{
 
         bool playerAttackturn(string playerDirectionAttackChoice);//TRUE IF PLAYER HITS
         bool playerDefendTurn(string playerDirectionBlockChoice);//TRUE IF PLAYER BLOCKS
-
         void toggleFastForward() {fastForward = !fastForward;}; //Toggles fastforward on or off
+  
     private:
         int turn = 0;
         int playerCurrentSwing = 0;

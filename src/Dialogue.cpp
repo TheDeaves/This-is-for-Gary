@@ -33,8 +33,12 @@ void Dialogue::loadStoryLineFile(){
     storyInFile.close();
 }
 
+void Dialogue::setCurrentStoryPos(int pos){
+    this->currentStoryPos = pos;
+}
+
 void Dialogue::incrementStory(){
-    this->currentStoryPos = currentStoryPos + 1;
+    this->currentStoryPos = this->currentStoryPos + 1;
 }
 
 string Dialogue::getWelcome(){
