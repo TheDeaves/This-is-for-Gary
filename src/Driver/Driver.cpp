@@ -41,12 +41,8 @@ while(true){//GAME PLAY LOOP
 
 		if(userMenuInput.find('y') != string::npos || userMenuInput.find('Y') != string::npos){//string::npos = -1 || IF TRUE sets name
 			playerCharacter.setCharacterName(userSetName);
-<<<<<<< HEAD
 				cout << "Before you can ask him his name in return, the man screams and lunges at you! Defend yourself!" << "!" << endl;
-=======
 				characterSetupLoop = true;
-				//cout << "Before you can ask him his name in return, the man screams and lunges at you! Defend yourself!" << "! (Ryley was here)" << endl;
->>>>>>> 2bda12f2e2e896929741d1aa60e6dd699acdc62c
 				cout << endl;
 				cout << endl;
 				cout << endl;
@@ -99,7 +95,6 @@ while(true){//GAME PLAY LOOP
 																						// COUTS COME FROM HERE
 
 				if(playerDidDamage){
-<<<<<<< HEAD
 					cout << "Amount of damage dealt: "<< NPC.takeDamage(playerCharacter.getAttack(), NPC.getDefense()) << endl; //Test to see damage dealt
 					cout << "Current HP: " << playerCharacter.getCurrentHP() << endl;
 					cout << "Enemy HP: " << NPC.getCurrentHP() << endl;
@@ -110,15 +105,6 @@ while(true){//GAME PLAY LOOP
 								playerCharacter.levelUp(); //Need to look more into leveling
 								//playerCharacter.gainXP(15);
 									break; 
-=======
-					NPC.takeDamage(5);
-						if(NPC.getCurrentHP() <= 0){
-							cout << "You won the fight!" << endl;
-								NPC.healthMax();
-									playerCharacter.healthMax();
-										break; 
->>>>>>> 2bda12f2e2e896929741d1aa60e6dd699acdc62c
-					}
 				}
 			
 			cout << endl;
@@ -138,13 +124,9 @@ while(true){//GAME PLAY LOOP
 				playerBlockedDamage = combat.playerDefendTurn(playerDirectionBlockChoice);
 
 				if(!playerBlockedDamage){
-<<<<<<< HEAD
 					cout << "Amount of damage taken: "<< playerCharacter.takeDamage(NPC.getAttack(), playerCharacter.getDefense()) << endl; //Test to see damage taken
 					cout << "Current HP: " << playerCharacter.getCurrentHP() << endl; // Needed to see HP values
 					cout << "Enemy HP: " << NPC.getCurrentHP() << endl; 
-=======
-					playerCharacter.takeDamage(3);
->>>>>>> 2bda12f2e2e896929741d1aa60e6dd699acdc62c
 						if(playerCharacter.getCurrentHP() <= 0){
 							cout << "GAME OVER." << endl;
 								exit;
@@ -164,15 +146,12 @@ while(true){//GAME PLAY LOOP
 
 	}//END OF COMBAT LOOP
 
-<<<<<<< HEAD
 	//LEVEL UP LOOP 
 	    /*Maybe add a level up menu and allow the player to choose to level a specific attribute or skill*/	
 
 	
 	//STORY LOOP 
 		/*story loop maybe for player actions? Moving on map buying gear etc.*/		
-=======
-}//END OF GAMEPLAY LOOP
-
->>>>>>> 2bda12f2e2e896929741d1aa60e6dd699acdc62c
+}
+}
 }
