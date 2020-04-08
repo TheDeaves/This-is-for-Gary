@@ -10,7 +10,7 @@
 #include "../Combat.cpp"
 #include "../Dialogue.cpp"
 
-#include <iostream>
+#include<iostream>
 
 using namespace std;
 
@@ -19,8 +19,14 @@ int main(){
 	Character playerCharacter;
 	Dialogue d;
 
-	string userMenuInput;
-	bool characterSetupLoop = false;
+	string userMenuInput;//FOR USER INPUT IN MENUS
+
+	bool characterSetupLoop = true;//THE GREAT BOOLEAN WALL OF GAME LOOP MANIPULATION
+	bool combatLoop = true;
+	bool shopLoop = true;
+	bool mapLoop = true;
+	bool characterLevelUpLoop = true;
+	
 
 	string userSetName;
 
@@ -31,18 +37,18 @@ int main(){
 	cout << d.getWelcome() << endl;
 
 while(true){//GAME PLAY LOOP
-	while(!characterSetupLoop){//SET UP LOOP
+	while(characterSetupLoop){//SET UP LOOP
 
-		while(!characterSetupLoop){//NAME LOOP
+		while(characterSetupLoop){//NAME LOOP
 			cin >> userSetName;
 	
 		cout << d.getVerifyName() << userSetName << "? \" he mutters, the fear apparent on his face. You notice no one else in the arena with the two of you... (yes to continue)" << endl;
 			cin >> userMenuInput;
 
-		if(userMenuInput.find('y') != string::npos || userMenuInput.find('Y') != string::npos){//string::npos = -1 || IF TRUE sets name
+		if(userMenuInput.find('y') != string::npos || userMenuInput.find('Y') != string::npos){//string::npos == -1 || IF TRUE sets name
 			playerCharacter.setCharacterName(userSetName);
 				cout << "Before you can ask him his name in return, the man screams and lunges at you! Defend yourself!" << "!" << endl;
-				characterSetupLoop = true;
+					characterSetupLoop = true;
 
 				cout << endl;
 				cout << endl;//THIS IS FOR FORMATTING
@@ -64,7 +70,7 @@ while(true){//GAME PLAY LOOP
 	Combat combat;
 	Character NPC;
 	string playerDirectionAttackChoice;
-	string playerDirectionBlockChoice;
+	string playerDirectionBlockChoice; // THESE STAY
 	bool playerDidDamage = false;
 	bool playerBlockedDamage = true;
 	bool levelUp = false;
@@ -76,7 +82,7 @@ while(true){//GAME PLAY LOOP
 		cout << d.getNextStory() << endl;
 			d.incrementStory();
 
-	while(true){//COMBAT LOOP
+	while(combatLoop){//COMBAT LOOP
 
 			cout << endl; 
 			cout << endl;//THIS IS FOR FORMATTING
@@ -107,9 +113,10 @@ while(true){//GAME PLAY LOOP
 						if(NPC.getCurrentHP() <= 0){
 							cout << "You won the fight!" << endl;
 								NPC.healthMax();
-								playerCharacter.levelUp(); //Need to look more into leveling
-								//playerCharacter.gainXP(15);
-									break; 
+									playerCharacter.healthMax();
+										playerCharacter.levelUp(); //Need to look more into leveling
+											//playerCharacter.gainXP(15);
+												break; 
 				}
 			
 			cout << endl;
@@ -154,13 +161,18 @@ while(true){//GAME PLAY LOOP
 		}
 
 	}//END OF COMBAT LOOP
-
-	//LEVEL UP LOOP 
+ 
 	    /*Maybe add a level up menu and allow the player to choose to level a specific attribute or skill*/	
+	while(characterLevelUpLoop){//LEVEL UP LOOP
+		
+
+	}
 
 	
 	//STORY LOOP 
 		/*story loop maybe for player actions? Moving on map buying gear etc.*/		
 }
+
+
 }
 }

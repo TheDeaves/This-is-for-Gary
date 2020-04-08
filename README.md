@@ -6,10 +6,10 @@ This game is called This is for Gary! Welcome to it! It's a text-based adventure
 Everything goes dark......
 
 The combat is turn-based, but allows the user to choose 1 of 3 directions to attack from, left, right, or the head. 
-    The player chooses a direction to strike and the NPC chooses a direction to block.
-    ei. if the player swings left and the NPC blocks rights, all damage is negated.
+The player chooses a direction to strike and the NPC chooses a direction to block.
+ei. if the player swings left and the NPC blocks rights, all damage is negated.
 
-    The player and NPC then switch sides until either the player wins or dies.
+The player and NPC then switch sides until either the player wins or dies.
 
     GOALS:
         Save-able characters;
