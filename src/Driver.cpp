@@ -6,9 +6,9 @@
 // Description : :candle: Gary
 //============================================================================
 
-#include "../Character.cpp"
-#include "../Combat.cpp"
-#include "../Dialogue.cpp"
+#include "Character.cpp"
+#include "Combat.cpp"
+#include "Dialogue.cpp"
 
 #include <iostream>
 
