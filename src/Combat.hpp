@@ -14,6 +14,8 @@ class Combat{
         int getAnotherRandom();
         int getRandomNum();
 
+        
+
         int swingLeft();//LEFT IS 1
         int swingTop();//TOP IS 2
         int swingRight();//RIGHT IS 3
@@ -28,6 +30,8 @@ class Combat{
 
         bool playerAttackturn(string playerDirectionAttackChoice);//TRUE IF PLAYER HITS
         bool playerDefendTurn(string playerDirectionBlockChoice);//TRUE IF PLAYER BLOCKS
+
+        void toggleFastForward() {fastForward = !fastForward;}; //Toggles fastforward on or off
     private:
         int turn = 0;
         int playerCurrentSwing = 0;
@@ -37,4 +41,6 @@ class Combat{
         int NPCCurrentBlock = 0;
         bool swingTopMissChance = false;
         int playerCurrentBlock = 0;
+
+        bool fastForward = false;  // added a check for fastForward to speed up combat. Default is false.
 };

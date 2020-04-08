@@ -46,9 +46,9 @@ string Dialogue::getVerifyName(){
 }
 
 string Dialogue::playerChooseAttackDirection(){
-    return "Which direction would you like to swing? (left, overhead, right)";
+    return "Which direction would you like to swing? (left, overhead, right, F for fast Forward)";
 }
 
 string Dialogue::playerChooseBlockDirection(){
-    return "Which direction would you like to block? (left, overhead, right)";
+    return "Which direction would you like to block? (left, overhead, right, F for fast Forward)";
 }

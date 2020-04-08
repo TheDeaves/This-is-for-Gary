@@ -42,21 +42,13 @@ int Character::takeDamage(int amount)
 int Character::takeDamage(int attack, int defense)
 {
     int baseAmount = 3;            //Our base amount of damage is 3
-    int amount = attack - defense; //Our amount of damage
+    int amount = (attack - defense) + baseAmount; //Our total amount of damage being dealt is the attack - the defense + the base amount
     if (amount < 0)
-    { //If attack is negative. Use base amount - the amount.
-        amount = baseAmount - amount;
-    }
-    if (attack == defense) //If the same use base amount
-    {
+    { //If attack is negative. Use base amount.
         amount = baseAmount;
     }
-    else
-    {                                             // If attack is greater then defense use that plus the base amount
-        amount += baseAmount; // Add base damage to the attack - the defense
-    }
     this->currentHealth -= amount; // Subtract the damage from the current health
-    return this->currentHealth;
+    return amount; //Retun the amount of damage dealt for testing purposes
 }
 
 int Character::getCurrentHP()
@@ -80,9 +72,10 @@ void Character::gainXP(int amount)
 }
 
 bool Character::levelUp()
-{
+{  
     if (this->currentXP >= this->neededXP)
     {
+        bool isLeveling = true;
         this->level = +1;                                           //CHANGES LEVEL
         this->neededXP = this->neededXP + (this->neededXP / 2) + 1; //CHANGES REQUIRED AMOUNT OF XP
 

@@ -94,11 +94,12 @@ bool Combat::playerAttackturn(string playerDirectionAttackChoice){
 		cout << "You swing your weapon at the enemies left side";
 			this->playerCurrentSwing = 1;
 	}
-
-        for(int i = 0; i < 3; i++){
-            cout << ".";
-            Sleep(1000);
-        }
+		if(!fastForward) {
+        	for(int i = 0; i < 3; i++){
+            	cout << ".";
+            	Sleep(1000);
+        	}
+		}
             cout << endl;
 
 		this->NPCCurrentBlock = getAnotherRandom();
@@ -148,10 +149,11 @@ bool Combat::playerDefendTurn(string playerDirectionBlockChoice){
 		cout << "You attempt to protect your left side";
 			this->playerCurrentBlock = 1;
 	}
-
+	if(!fastForward){
         for(int i = 0; i < 3; i++){
-            cout << ".";
-            Sleep(1000);
+            	cout << ".";			
+				Sleep(1000);
+			}            
         }
             cout << endl;
 

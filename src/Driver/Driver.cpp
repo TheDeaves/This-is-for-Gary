@@ -72,7 +72,9 @@ int main(){
 		cout << d.playerChooseAttackDirection() << endl;
 			cin >> playerDirectionAttackChoice;	//USER ENTERS LEFT, OVERHEAD, RIGHT
 												//IF USER ENTERS 'OTHER' THEY SWING LEFT
-
+			if(playerDirectionAttackChoice == "f" || playerDirectionAttackChoice == "F") { //If choice is F toggle fast forward
+				combat.toggleFastForward();
+			}
 			cout << endl; 
 			cout << endl;//THIS IS FOR FORMATTING
 			cout << endl;
@@ -81,10 +83,14 @@ int main(){
 
 				if(playerDidDamage){
 					cout << "Amount of damage dealt: "<< NPC.takeDamage(playerCharacter.getAttack(), NPC.getDefense()) << endl; //Test to see damage dealt
+					cout << "Current HP: " << playerCharacter.getCurrentHP() << endl;
+					cout << "Enemy HP: " << NPC.getCurrentHP() << endl;
 					NPC.takeDamage(playerCharacter.getAttack(), NPC.getDefense()); //changed from the base of 3.
 						if(NPC.getCurrentHP() <= 0){
 							cout << "You won the fight!" << endl;
 								NPC.healthMax();
+								playerCharacter.levelUp(); //Need to look more into leveling
+								//playerCharacter.gainXP(15);
 									break; 
 					}
 				}
@@ -96,6 +102,9 @@ int main(){
 			cout << d.playerChooseBlockDirection() << endl;
 				cin >> playerDirectionBlockChoice;	//USER ENTERS LEFT, OVERHEAD, RIGHT
 													//IF USER ENTERS 'OTHER' THEY SWING LEFT
+			if(playerDirectionBlockChoice == "f" || playerDirectionBlockChoice == "F") { //If choice is F toggle fast forward
+				combat.toggleFastForward();
+			}
 			cout << endl;
 			cout << endl;//THIS IS FOR FORMATTING
 			cout << endl;
@@ -104,7 +113,8 @@ int main(){
 
 				if(!playerBlockedDamage){
 					cout << "Amount of damage taken: "<< playerCharacter.takeDamage(NPC.getAttack(), playerCharacter.getDefense()) << endl; //Test to see damage taken
-					playerCharacter.takeDamage(NPC.getAttack(), playerCharacter.getDefense());
+					cout << "Current HP: " << playerCharacter.getCurrentHP() << endl; // Needed to see HP values
+					cout << "Enemy HP: " << NPC.getCurrentHP() << endl; 
 						if(playerCharacter.getCurrentHP() <= 0){
 							cout << "GAME OVER." << endl;
 								exit;
@@ -124,11 +134,9 @@ int main(){
 
 	}//END OF COMBAT LOOP
 
-	//LEVEL UP LOOP
-	while (levelUp) //levelup loop added
-	{
-		
-	}
+	//LEVEL UP LOOP 
+	    /*Maybe add a level up menu and allow the player to choose to level a specific attribute or skill*/	
+
 	
 	//STORY LOOP 
 		/*story loop maybe for player actions? Moving on map buying gear etc.*/		
