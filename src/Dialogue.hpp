@@ -19,6 +19,6 @@ class Dialogue{
     private:
     string storyLine[25];
     int currentStoryPos = 0;
-    int storyLineLength = 6;
+    int storyLineLength = 6;//MATCH NUMBER OF LINES IN STORYLINE.TXT
 
 };

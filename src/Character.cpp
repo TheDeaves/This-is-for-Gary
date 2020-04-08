@@ -17,6 +17,10 @@ string Character::getCharacterName()
     return this->characterName;
 }
 
+int Character::getCurrentXP(){
+    return this->currentXP;
+}
+
 void Character::setCharacterName(string userSetName)
 {
     this->characterName = userSetName;

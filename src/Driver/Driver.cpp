@@ -43,9 +43,11 @@ while(true){//GAME PLAY LOOP
 			playerCharacter.setCharacterName(userSetName);
 				cout << "Before you can ask him his name in return, the man screams and lunges at you! Defend yourself!" << "!" << endl;
 				characterSetupLoop = true;
+
 				cout << endl;
+				cout << endl;//THIS IS FOR FORMATTING
 				cout << endl;
-				cout << endl;
+
 			break;
 		}
 		else{
