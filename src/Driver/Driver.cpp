@@ -16,7 +16,6 @@ using namespace std;
 
 int main(){
 
-while(true){
 	Character playerCharacter;
 	Dialogue d;
 
@@ -31,6 +30,7 @@ while(true){
 
 	cout << d.getWelcome() << endl;
 
+while(true){//GAME PLAY LOOP
 	while(!characterSetupLoop){//SET UP LOOP
 
 		while(!characterSetupLoop){//NAME LOOP
@@ -68,11 +68,12 @@ while(true){
 
 	d.setCurrentStoryPos(2);//FIXME SHOULDN"T NEED TO SET THIS BUT STORYLINE IS BEHIND
 
-	while(true){//COMBAT LOOP
 		cout << d.getNextStory() << endl;
 			d.incrementStory();				//TWO LINES FROM STORY FILE PER COMBAT LOOP
 		cout << d.getNextStory() << endl;
 			d.incrementStory();
+
+	while(true){//COMBAT LOOP
 
 			cout << endl; 
 			cout << endl;//THIS IS FOR FORMATTING
@@ -134,6 +135,6 @@ while(true){
 
 	}//END OF COMBAT LOOP
 
-}
+}//END OF GAMEPLAY LOOP
 
 }
