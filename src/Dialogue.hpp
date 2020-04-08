@@ -8,6 +8,7 @@ class Dialogue{
     public:
         Dialogue();
         string getNextStory();
+        void incrementStory();
         void loadStoryLineFile();
         string getWelcome();
         string getVerifyName();
@@ -16,7 +17,7 @@ class Dialogue{
 
     private:
     string storyLine[25];
-    int currentStoryPos;
-    int storyLineLength = 1;
+    int currentStoryPos = 0;
+    int storyLineLength = 2;
 
 };

@@ -8,7 +8,7 @@ Dialogue::Dialogue(){
 }
 
 string Dialogue::getNextStory(){
-    return storyLine[currentStoryPos];
+        return this->storyLine[this->currentStoryPos];
 }
 
 void Dialogue::loadStoryLineFile(){
@@ -22,14 +22,19 @@ void Dialogue::loadStoryLineFile(){
     }
 
     if(storyInFile.is_open()){
-        while(getline(storyInFile, storyString)){
-                this->storyLine[this->currentStoryPos] = storyString;
+        int i = 0;
 
-                cout << storyString << endl;
-                    this->currentStoryPos =+ 1;
+        while(getline(storyInFile, storyString)){
+                this->storyLine[i] = storyString;
+                    this->storyLineLength =+ 1;
+                        i++;
         }
     }
     storyInFile.close();
+}
+
+void Dialogue::incrementStory(){
+    this->currentStoryPos = currentStoryPos + 1;
 }
 
 string Dialogue::getWelcome(){

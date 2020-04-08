@@ -24,6 +24,10 @@ int main(){
 
 	string userSetName;
 
+	cout << d.getNextStory() << endl;
+		d.incrementStory();
+	cout << d.getNextStory() << endl;
+
 	cout << d.getWelcome() << endl;
 
 	while(!characterSetupLoop){//SET UP LOOP
