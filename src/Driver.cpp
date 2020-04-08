@@ -43,9 +43,11 @@ while(true){//GAME PLAY LOOP
 			playerCharacter.setCharacterName(userSetName);
 				cout << "Before you can ask him his name in return, the man screams and lunges at you! Defend yourself!" << "!" << endl;
 				characterSetupLoop = true;
+
 				cout << endl;
+				cout << endl;//THIS IS FOR FORMATTING
 				cout << endl;
-				cout << endl;
+
 			break;
 		}
 		else{
@@ -81,6 +83,8 @@ while(true){//GAME PLAY LOOP
 			cout << endl;
 
 		cout << "Round " << combat.getTurn() << endl;
+			Sleep(1000);
+
 		cout << d.playerChooseAttackDirection() << endl;
 			cin >> playerDirectionAttackChoice;	//USER ENTERS LEFT, OVERHEAD, RIGHT
 												//IF USER ENTERS 'OTHER' THEY SWING LEFT
@@ -93,7 +97,8 @@ while(true){//GAME PLAY LOOP
 
 				playerDidDamage = combat.playerAttackturn(playerDirectionAttackChoice);//TREAT AS BLACK BOX
 																						// COUTS COME FROM HERE
-
+				Sleep(1000);
+				
 				if(playerDidDamage){
 					cout << "Amount of damage dealt: "<< NPC.takeDamage(playerCharacter.getAttack(), NPC.getDefense()) << endl; //Test to see damage dealt
 					cout << "Current HP: " << playerCharacter.getCurrentHP() << endl;
@@ -110,6 +115,8 @@ while(true){//GAME PLAY LOOP
 			cout << endl;
 			cout << endl;//THIS IS FOR FORMATTING
 			cout << endl;
+
+				Sleep(1000);
 			
 			cout << d.playerChooseBlockDirection() << endl;
 				cin >> playerDirectionBlockChoice;	//USER ENTERS LEFT, OVERHEAD, RIGHT
@@ -122,6 +129,8 @@ while(true){//GAME PLAY LOOP
 			cout << endl;
 
 				playerBlockedDamage = combat.playerDefendTurn(playerDirectionBlockChoice);
+
+				Sleep(1000);
 
 				if(!playerBlockedDamage){
 					cout << "Amount of damage taken: "<< playerCharacter.takeDamage(NPC.getAttack(), playerCharacter.getDefense()) << endl; //Test to see damage taken

@@ -17,7 +17,7 @@ class Character{
     public:
         Character();
         void setCharacterName(string userSetName);
-        int getCurrentXP(){return this-> currentXP;}
+        int getCurrentXP();
         string getCharacterName();
         int getGold();
 
