@@ -10,6 +10,7 @@ class Dialogue{
         string getNextStory();
         void incrementStory();
         void loadStoryLineFile();
+        void setCurrentStoryPos(int pos);
         string getWelcome();
         string getVerifyName();
         string playerChooseAttackDirection();
@@ -18,6 +19,6 @@ class Dialogue{
     private:
     string storyLine[25];
     int currentStoryPos = 0;
-    int storyLineLength = 2;
+    int storyLineLength = 6;
 
 };

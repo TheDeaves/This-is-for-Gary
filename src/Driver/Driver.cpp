@@ -1,9 +1,9 @@
 //============================================================================
 // Name        : This.cpp
-// Author      : 
-// Version     :
+// Author      : TheDeaves, Ryley
+// Version     : .01
 // Copyright   : Your copyright notice
-// Description : Hello World in C++, Ansi-style
+// Description : :candle: Gary
 //============================================================================
 
 #include "../Character.cpp"
@@ -16,6 +16,7 @@ using namespace std;
 
 int main(){
 
+while(true){
 	Character playerCharacter;
 	Dialogue d;
 
@@ -40,6 +41,7 @@ int main(){
 
 		if(userMenuInput.find('y') != string::npos || userMenuInput.find('Y') != string::npos){//string::npos = -1 || IF TRUE sets name
 			playerCharacter.setCharacterName(userSetName);
+				characterSetupLoop = true;
 				//cout << "Before you can ask him his name in return, the man screams and lunges at you! Defend yourself!" << "! (Ryley was here)" << endl;
 				cout << endl;
 				cout << endl;
@@ -64,8 +66,17 @@ int main(){
 	bool playerDidDamage = false;
 	bool playerBlockedDamage = true;
 
+	d.setCurrentStoryPos(2);//FIXME SHOULDN"T NEED TO SET THIS BUT STORYLINE IS BEHIND
+
 	while(true){//COMBAT LOOP
-	
+		cout << d.getNextStory() << endl;
+			d.incrementStory();				//TWO LINES FROM STORY FILE PER COMBAT LOOP
+		cout << d.getNextStory() << endl;
+			d.incrementStory();
+
+			cout << endl; 
+			cout << endl;//THIS IS FOR FORMATTING
+			cout << endl;
 
 		cout << "Round " << combat.getTurn() << endl;
 		cout << d.playerChooseAttackDirection() << endl;
@@ -76,14 +87,16 @@ int main(){
 			cout << endl;//THIS IS FOR FORMATTING
 			cout << endl;
 
-				playerDidDamage = combat.playerAttackturn(playerDirectionAttackChoice);
+				playerDidDamage = combat.playerAttackturn(playerDirectionAttackChoice);//TREAT AS BLACK BOX
+																						// COUTS COME FROM HERE
 
 				if(playerDidDamage){
-					NPC.takeDamage(3);
+					NPC.takeDamage(5);
 						if(NPC.getCurrentHP() <= 0){
 							cout << "You won the fight!" << endl;
 								NPC.healthMax();
-									break; 
+									playerCharacter.healthMax();
+										break; 
 					}
 				}
 			
@@ -101,7 +114,7 @@ int main(){
 				playerBlockedDamage = combat.playerDefendTurn(playerDirectionBlockChoice);
 
 				if(!playerBlockedDamage){
-					playerCharacter.takeDamage(5);
+					playerCharacter.takeDamage(3);
 						if(playerCharacter.getCurrentHP() <= 0){
 							cout << "GAME OVER." << endl;
 								exit;
@@ -121,5 +134,6 @@ int main(){
 
 	}//END OF COMBAT LOOP
 
-		
+}
+
 }
