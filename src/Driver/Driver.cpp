@@ -20,14 +20,15 @@ int main(){
 	Dialogue d;
 
 	string userMenuInput;
+	bool characterSetupLoop = false;
 
-string userSetName;
+	string userSetName;
 
 	cout << d.getWelcome() << endl;
 
-	while(true){//SET UP LOOP
+	while(!characterSetupLoop){//SET UP LOOP
 
-		while(true){//NAME LOOP
+		while(!characterSetupLoop){//NAME LOOP
 			cin >> userSetName;
 	
 		cout << d.getVerifyName() << userSetName << "? \" he mutters, the fear apparent on his face. You notice no one else in the arena with the two of you... (yes to continue)" << endl;
@@ -35,7 +36,7 @@ string userSetName;
 
 		if(userMenuInput.find('y') != string::npos || userMenuInput.find('Y') != string::npos){//string::npos = -1 || IF TRUE sets name
 			playerCharacter.setCharacterName(userSetName);
-				cout << "Before you can ask him his name in return, the man screams and lunges at you! " << "! (Ryley was here)" << endl;
+				cout << "Before you can ask him his name in return, the man screams and lunges at you! Defend yourself!" << "! (Ryley was here)" << endl;
 				cout << endl;
 				cout << endl;
 				cout << endl;
@@ -56,8 +57,8 @@ string userSetName;
 	Character NPC;
 	string playerDirectionAttackChoice;
 	string playerDirectionBlockChoice;
-
-	bool swingTopMissChance = false;//TRUE IF HIT
+	bool playerDidDamage = false;
+	bool playerBlockedDamage = true;
 
 	while(true){//COMBAT LOOP
 
@@ -70,7 +71,16 @@ string userSetName;
 			cout << endl;//THIS IS FOR FORMATTING
 			cout << endl;
 
-				combat.playerAttackturn(playerDirectionAttackChoice);
+				playerDidDamage = combat.playerAttackturn(playerDirectionAttackChoice);
+
+				if(playerDidDamage){
+					NPC.takeDamage(3);
+						if(NPC.getCurrentHP() <= 0){
+							cout << "You won the fight!" << endl;
+								NPC.healthMax();
+									break; 
+					}
+				}
 			
 			cout << endl;
 			cout << endl;//THIS IS FOR FORMATTING
@@ -83,8 +93,15 @@ string userSetName;
 			cout << endl;//THIS IS FOR FORMATTING
 			cout << endl;
 
-				combat.playerDefendTurn(playerDirectionBlockChoice);
+				playerBlockedDamage = combat.playerDefendTurn(playerDirectionBlockChoice);
 
+				if(!playerBlockedDamage){
+					playerCharacter.takeDamage(5);
+						if(playerCharacter.getCurrentHP() <= 0){
+							cout << "GAME OVER." << endl;
+								exit;
+						}
+				}
 
 			cout << endl;
 			cout << endl;//THIS IS FOR FORMATTING

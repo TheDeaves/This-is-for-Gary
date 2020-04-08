@@ -26,8 +26,8 @@ class Combat{
         bool blockCheck(int playerCurrentSwing, int NPCCurrentBlock);//TRUE IF BLOCK
         bool overheadMissChance();//70% chance to miss TRUE IF HIT
 
-        void playerAttackturn(string playerDirectionAttackChoice);
-        void playerDefendTurn(string playerDirectionBlockChoice);
+        bool playerAttackturn(string playerDirectionAttackChoice);//TRUE IF PLAYER HITS
+        bool playerDefendTurn(string playerDirectionBlockChoice);//TRUE IF PLAYER BLOCKS
     private:
         int turn = 0;
         int playerCurrentSwing = 0;

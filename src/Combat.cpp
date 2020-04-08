@@ -76,7 +76,7 @@ bool Combat::overheadMissChance(){//TRUE IF HIT
     }
 }
 
-void Combat::playerAttackturn(string playerDirectionAttackChoice){
+bool Combat::playerAttackturn(string playerDirectionAttackChoice){
 	if(playerDirectionAttackChoice.find("overhead") != string::npos){
 		this->playerCurrentSwing = swingTop();
 			this->swingTopMissChance = overheadMissChance();
@@ -103,29 +103,35 @@ void Combat::playerAttackturn(string playerDirectionAttackChoice){
 
 		this->NPCCurrentBlock = getAnotherRandom();
 
-		//cout << "NPC BLOCK: " << this->NPCCurrentBlock << endl;   TESTING PURPOSES
-		//cout << "PLAYER SWING: " << this->playerCurrentSwing << endl;
+		cout << "NPC BLOCK: " << this->NPCCurrentBlock << endl;   //TESTING PURPOSES
+		cout << "PLAYER SWING: " << this->playerCurrentSwing << endl;
 
 
 	if(blockCheck(playerCurrentSwing, NPCCurrentBlock) && !this->swingTopMissChance){//IF BLOCKED OR MISS
 		if(blockCheck(playerCurrentSwing, NPCCurrentBlock)){//BLOCK
 			cout << "The enemy brings their shield up and blocks!" << endl;
+                return false;
 		}
 	}else if(blockCheck(playerCurrentSwing, NPCCurrentBlock) && playerCurrentSwing == 2){//BLOCK OVERHEAD
 		cout << "The enemy parries your blow away from their head!" << endl;
+            return false;
 	}
 	else if(playerCurrentSwing == 2 && !swingTopMissChance){//MISS OVERHEAD
 		cout << "You swing wide and miss!" << endl;
+            return false;
 	}
 	else if(!blockCheck(playerCurrentSwing, NPCCurrentBlock)){//HIT
 		cout << "You hit the enemy!" << endl;
+            return true;
 
 
 	}
-        Sleep(1000);
+        cout << "ERROR IN PLAYER ATTACK TURN()" << endl;
+            Sleep(1000);
+                return false;
 }
 
-void Combat::playerDefendTurn(string playerDirectionBlockChoice){
+bool Combat::playerDefendTurn(string playerDirectionBlockChoice){
     if(playerDirectionBlockChoice.find("overhead") != string::npos){
 		this->playerCurrentBlock = blockTop();
 			cout << "You attempt to protect your head";
@@ -152,22 +158,29 @@ void Combat::playerDefendTurn(string playerDirectionBlockChoice){
 		this->NPCCurrentSwing = getAnotherRandom();
 
 
-	//	cout << "NPC SWING: " << this->NPCCurrentSwing << endl;   TESTING PURPOSES
-	//	cout << "PLAYER BLOCK: " << this->playerCurrentBlock << endl;
+		cout << "NPC SWING: " << this->NPCCurrentSwing << endl;   //TESTING PURPOSES
+		cout << "PLAYER BLOCK: " << this->playerCurrentBlock << endl;
 
-			if(blockCheck(this->NPCCurrentSwing, this->playerCurrentBlock) && !this->swingTopMissChance){//IF BLOCKED OR MISS
-				if(blockCheck(this->NPCCurrentSwing, this->playerCurrentBlock)){//BLOCK
-					cout << "You bring your shield up at the last second and block!" << endl;
-				}
-			}else if(blockCheck(this->NPCCurrentSwing, this->playerCurrentBlock) && this->playerCurrentSwing == 2){//BLOCK OVERHEAD
-				cout << "You parry the enemy blade away from your head!" << endl;
-			}
-			else if(this->NPCCurrentSwing == 2 && !this->swingTopMissChance){//MISS OVERHEAD
-					cout << "The enemy wildly misses!" << endl;
-			}
-			else if(!blockCheck(this->NPCCurrentSwing, this->playerCurrentBlock)){//HIT
-				cout << "They enemy hits you!" << endl;
-			}
+	if(blockCheck(this->NPCCurrentSwing, this->playerCurrentBlock) && !this->swingTopMissChance){//IF BLOCKED OR MISS
+		if(blockCheck(this->NPCCurrentSwing, this->playerCurrentBlock)){//BLOCK
+			cout << "You bring your shield up at the last second and block!" << endl;
+                return true;
+	    }
+	}
+    else if(blockCheck(this->NPCCurrentSwing, this->playerCurrentBlock) && this->playerCurrentSwing == 2){//BLOCK OVERHEAD
+		cout << "You parry the enemy blade away from your head!" << endl;
+             return true;
+	}
+	else if(this->NPCCurrentSwing == 2 && !this->swingTopMissChance){//MISS OVERHEAD
+		cout << "The enemy wildly misses!" << endl;
+             return true;
+	}
+	else if(!blockCheck(this->NPCCurrentSwing, this->playerCurrentBlock)){//HIT
+		cout << "They enemy hits you!" << endl;
+            return false;
+	}
+        cout << "ERROR IN PLAYER DEFEND TURN()" << endl;
             Sleep(1000);
+                return true;
 
 }
