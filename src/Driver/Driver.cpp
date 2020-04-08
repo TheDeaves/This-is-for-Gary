@@ -40,7 +40,7 @@ int main(){
 
 		if(userMenuInput.find('y') != string::npos || userMenuInput.find('Y') != string::npos){//string::npos = -1 || IF TRUE sets name
 			playerCharacter.setCharacterName(userSetName);
-				cout << "Before you can ask him his name in return, the man screams and lunges at you! Defend yourself!" << "! (Ryley was here)" << endl;
+				//cout << "Before you can ask him his name in return, the man screams and lunges at you! Defend yourself!" << "! (Ryley was here)" << endl;
 				cout << endl;
 				cout << endl;
 				cout << endl;
@@ -65,6 +65,7 @@ int main(){
 	bool playerBlockedDamage = true;
 
 	while(true){//COMBAT LOOP
+	
 
 		cout << "Round " << combat.getTurn() << endl;
 		cout << d.playerChooseAttackDirection() << endl;

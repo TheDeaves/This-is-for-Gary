@@ -80,7 +80,7 @@ bool Combat::playerAttackturn(string playerDirectionAttackChoice){
 	if(playerDirectionAttackChoice.find("overhead") != string::npos){
 		this->playerCurrentSwing = swingTop();
 			this->swingTopMissChance = overheadMissChance();
-				cout << "You viscously swing your weapon at the enemies head";
+				cout << "You vicously swing your weapon at the enemies head";
 	}
 	else if(playerDirectionAttackChoice.find("left") != string::npos){
 		this->playerCurrentSwing = swingLeft();
