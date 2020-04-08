@@ -40,7 +40,7 @@ int main(){
 
 		if(userMenuInput.find('y') != string::npos || userMenuInput.find('Y') != string::npos){//string::npos = -1 || IF TRUE sets name
 			playerCharacter.setCharacterName(userSetName);
-				//cout << "Before you can ask him his name in return, the man screams and lunges at you! Defend yourself!" << "! (Ryley was here)" << endl;
+				cout << "Before you can ask him his name in return, the man screams and lunges at you! Defend yourself!" << "!" << endl;
 				cout << endl;
 				cout << endl;
 				cout << endl;
@@ -63,6 +63,7 @@ int main(){
 	string playerDirectionBlockChoice;
 	bool playerDidDamage = false;
 	bool playerBlockedDamage = true;
+	bool levelUp = false;
 
 	while(true){//COMBAT LOOP
 	
@@ -79,7 +80,8 @@ int main(){
 				playerDidDamage = combat.playerAttackturn(playerDirectionAttackChoice);
 
 				if(playerDidDamage){
-					NPC.takeDamage(3);
+					cout << "Amount of damage dealt: "<< NPC.takeDamage(playerCharacter.getAttack(), NPC.getDefense()) << endl; //Test to see damage dealt
+					NPC.takeDamage(playerCharacter.getAttack(), NPC.getDefense()); //changed from the base of 3.
 						if(NPC.getCurrentHP() <= 0){
 							cout << "You won the fight!" << endl;
 								NPC.healthMax();
@@ -101,7 +103,8 @@ int main(){
 				playerBlockedDamage = combat.playerDefendTurn(playerDirectionBlockChoice);
 
 				if(!playerBlockedDamage){
-					playerCharacter.takeDamage(5);
+					cout << "Amount of damage taken: "<< playerCharacter.takeDamage(NPC.getAttack(), playerCharacter.getDefense()) << endl; //Test to see damage taken
+					playerCharacter.takeDamage(NPC.getAttack(), playerCharacter.getDefense());
 						if(playerCharacter.getCurrentHP() <= 0){
 							cout << "GAME OVER." << endl;
 								exit;
@@ -121,5 +124,12 @@ int main(){
 
 	}//END OF COMBAT LOOP
 
+	//LEVEL UP LOOP
+	while (levelUp) //levelup loop added
+	{
 		
+	}
+	
+	//STORY LOOP 
+		/*story loop maybe for player actions? Moving on map buying gear etc.*/		
 }
