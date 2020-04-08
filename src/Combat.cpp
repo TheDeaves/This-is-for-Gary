@@ -107,7 +107,8 @@ bool Combat::playerAttackturn(string playerDirectionAttackChoice){
 		cout << "NPC BLOCK: " << this->NPCCurrentBlock << endl;   //TESTING PURPOSES
 		cout << "PLAYER SWING: " << this->playerCurrentSwing << endl;
 
-
+		Sleep(1000);
+		
 	if(blockCheck(playerCurrentSwing, NPCCurrentBlock) && !this->swingTopMissChance){//IF BLOCKED OR MISS
 		if(blockCheck(playerCurrentSwing, NPCCurrentBlock)){//BLOCK
 			cout << "The enemy brings their shield up and blocks!" << endl;
@@ -128,7 +129,6 @@ bool Combat::playerAttackturn(string playerDirectionAttackChoice){
 
 	}
         cout << "ERROR IN PLAYER ATTACK TURN()" << endl;
-            Sleep(1000);
                 return false;
 }
 
@@ -163,6 +163,8 @@ bool Combat::playerDefendTurn(string playerDirectionBlockChoice){
 		cout << "NPC SWING: " << this->NPCCurrentSwing << endl;   //TESTING PURPOSES
 		cout << "PLAYER BLOCK: " << this->playerCurrentBlock << endl;
 
+		Sleep(1000);
+
 	if(blockCheck(this->NPCCurrentSwing, this->playerCurrentBlock) && !this->swingTopMissChance){//IF BLOCKED OR MISS
 		if(blockCheck(this->NPCCurrentSwing, this->playerCurrentBlock)){//BLOCK
 			cout << "You bring your shield up at the last second and block!" << endl;
@@ -182,7 +184,7 @@ bool Combat::playerDefendTurn(string playerDirectionBlockChoice){
             return false;
 	}
         cout << "ERROR IN PLAYER DEFEND TURN()" << endl;
-            Sleep(1000);
+
                 return true;
 
 }
