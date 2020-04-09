@@ -15,7 +15,7 @@ void Dialogue::loadStoryLineFile(){
     ifstream storyInFile;
     string storyString;
 
-    storyInFile.open("../Texts/Storyline.txt");
+    storyInFile.open("Texts/Storyline.txt");
 
     if(!storyInFile.is_open()){
         cout << "Storyline file failed to open." << endl;

@@ -8,7 +8,8 @@ main: Driver.o $(OBJECTS) #Driver class go here
 
 
 clean:
-	$(RM) *.o *.gc* *.dSYM test/test core Driver
+		rm -rf main.dSYM
+	$(RM) *.o *.gc* test/*.o test/*.gc* *.dSYM test/test core mainma
 
 testBuild: $(OBJECTS)
 	$(CXX) $(CXXFLAGS) -Itest/catch/catch.hpp -o test/test $(OBJECTS) test/test.cpp
