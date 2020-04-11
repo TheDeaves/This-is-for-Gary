@@ -14,15 +14,33 @@ TEST_CASE("Character Class")
     Character c;
     c.setCharacterName("HELLO");
         REQUIRE(c.getCharacterName() == "HELLO");
+
+        REQUIRE(c.getCurrentHP() == 15);
+
+    c.takeDamage(3);
+
+        REQUIRE(c.getCurrentHP() == 12);
 }
 
 TEST_CASE("Dialogue Class")
 {
+    Dialogue d;
 
+        REQUIRE(d.getWelcome() == "A dirty man walks out beside you into the desert coliseum and he quickly asks your name...");
 }
 
 TEST_CASE("Combat Class")
 {
+    Combat c;
 
+        REQUIRE(c.getTurn() == 0);
+
+    c.increTurn();
+    c.increTurn();
+    c.increTurn();
+    c.increTurn();
+    c.increTurn();
+
+        REQUIRE(c.getTurn() == 5);
 
 }

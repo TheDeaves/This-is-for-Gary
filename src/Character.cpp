@@ -80,7 +80,6 @@ bool Character::levelUp()
 {  
     if (this->currentXP >= this->neededXP)
     {
-        bool isLeveling = true;
         this->level = +1;                                           //CHANGES LEVEL
         this->neededXP = this->neededXP + (this->neededXP / 2) + 1; //CHANGES REQUIRED AMOUNT OF XP
 
