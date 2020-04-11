@@ -6,6 +6,7 @@
 #include "../Character.hpp"
 #include "../Dialogue.hpp"
 #include "../Combat.hpp"
+#include "../Item.hpp"
 
 using namespace std;
 
@@ -43,4 +44,10 @@ TEST_CASE("Combat Class")
 
         REQUIRE(c.getTurn() == 5);
 
+}
+
+TEST_CASE("Item Class"){
+    Item i("Item1", 10, "weapon");
+
+        REQUIRE(i.getName() == "Item1");
 }

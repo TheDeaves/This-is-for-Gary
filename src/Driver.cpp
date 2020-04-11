@@ -9,6 +9,7 @@
 #include "Character.cpp"
 #include "Combat.cpp"
 #include "Dialogue.cpp"
+#include "Item.cpp"
 
 #include<iostream>
 
