@@ -36,6 +36,11 @@ int Character::getGold()
 int Character::getCurrentStoryPosForLoad(){
     return this->currentStoryPosForLoad;
 }
+
+void Character::setAttack(int amount){
+    this->attack = amount;
+}
+
 void Character::healthMax()
 { //CURRENTLY HEAL AFTER EVERY FIGHT TO MAX
     this->currentHealth = maxHealth;

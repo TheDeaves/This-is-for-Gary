@@ -20,6 +20,9 @@ int main(){
 	Character playerCharacter;
 	Dialogue d;
 
+	playerCharacter.setAttack(50);
+
+
 	string userMenuInput;//FOR USER INPUT IN MENUS
 	string playerChoice;// FOR USER INPUT IN GAME LOOP
 
@@ -28,7 +31,7 @@ int main(){
 	bool combatLoop = true;
 	bool shopLoop = true;
 	bool mapLoop = true;
-	bool characterLevelUpLoop = true;
+	bool characterLevelUpLoop = false;
 	bool saveLoop = true;
 	
 

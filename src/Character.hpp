@@ -28,6 +28,7 @@ class Character{
         string getCharacterName();
         int getGold();
         int getCurrentStoryPosForLoad();
+        void setAttack(int amount);
 
         //COMBAT
         void healthMax();//CURRENTLY HEAL AFTER EVERY FIGHT TO MAX
