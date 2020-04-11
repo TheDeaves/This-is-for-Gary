@@ -1,3 +1,6 @@
+#ifndef COMBAT_HPP
+#define COMBAT_HPP
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
@@ -44,3 +47,5 @@ class Combat{
 
         bool fastForward = false;  // added a check for fastForward to speed up combat. Default is false.
 };
+
+#endif
