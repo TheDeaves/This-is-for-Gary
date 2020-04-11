@@ -13,10 +13,12 @@ class Dialogue{
         void incrementStory();
         void loadStoryLineFile();
         void setCurrentStoryPos(int pos);
+        int getCurrentStoryPos();
         string getWelcome();
         string getVerifyName();
         string playerChooseAttackDirection();
         string playerChooseBlockDirection();
+        string mainMenuPrompt();
 
     private:
     string storyLine[25];

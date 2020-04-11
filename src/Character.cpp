@@ -10,6 +10,8 @@ Character::Character()
     this->currentXP = 0;
     this->neededXP = 2;
     this->level = 1;
+    this->gold = 0;
+    this->currentStoryPosForLoad = 0;
 }
 
 string Character::getCharacterName()
@@ -31,6 +33,9 @@ int Character::getGold()
     return this->gold;
 }
 
+int Character::getCurrentStoryPosForLoad(){
+    return this->currentStoryPosForLoad;
+}
 void Character::healthMax()
 { //CURRENTLY HEAL AFTER EVERY FIGHT TO MAX
     this->currentHealth = maxHealth;
@@ -99,4 +104,65 @@ bool Character::levelUp()
 void Character::gainGold(int amount)
 {
     this->gold = +amount;
+}
+
+bool Character::Save(int currentStoryPos){
+    ofstream saveFile;
+        saveFile.open("save1.txt");
+
+        if(!saveFile.is_open()){
+            cout << "failed! :(" << endl;
+                return false;
+        }
+        else{
+            saveFile << characterName << endl;
+            saveFile << maxHealth << endl;
+            saveFile << currentHealth << endl;
+            saveFile << currentXP << endl;
+            saveFile << level << endl;
+            saveFile << neededXP << endl;
+            saveFile << gold << endl;
+            saveFile << attack << endl;
+            saveFile << defense << endl;
+            saveFile << currentStoryPos << endl;
+
+            cout << "Success!" << endl;
+
+            saveFile.close();
+
+            return true;
+        }
+}
+
+void Character::Load(){
+    ifstream loadFile;
+
+    loadFile.open("save1.txt");
+
+    if(!loadFile.is_open()){
+        cout << "failed! :( " << endl;
+    }
+    else{
+        string loadCharacter[10];
+        string temp;
+        int i = 0;
+
+        while(getline(loadFile, temp)){
+            loadCharacter[i] = temp;
+                i++;
+        }
+        this->characterName = loadCharacter[0];
+        this->maxHealth = stoi(loadCharacter[1]);
+        this->currentHealth = stoi(loadCharacter[2]);
+        this->currentXP = stoi(loadCharacter[3]);
+        this->level = stoi(loadCharacter[4]);
+        this->neededXP = stoi(loadCharacter[5]);
+        this->gold = stoi(loadCharacter[6]);
+        this->attack = stoi(loadCharacter[7]);
+        this->defense = stoi(loadCharacter[8]);
+        this->currentStoryPosForLoad = stoi(loadCharacter[9]);
+
+        cout << "Success!" << endl;
+        cout << this->characterName << endl;
+    }
 }

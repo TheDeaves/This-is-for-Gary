@@ -37,6 +37,10 @@ void Dialogue::setCurrentStoryPos(int pos){
     this->currentStoryPos = pos;
 }
 
+int Dialogue::getCurrentStoryPos(){
+    return this->currentStoryPos;
+}
+
 void Dialogue::incrementStory(){
     this->currentStoryPos = this->currentStoryPos + 1;
 }
@@ -55,4 +59,8 @@ string Dialogue::playerChooseAttackDirection(){
 
 string Dialogue::playerChooseBlockDirection(){
     return "Which direction would you like to block? (left, overhead, right, F for fast Forward)";
+}
+
+string Dialogue::mainMenuPrompt(){
+    return "Welcome! Would you like to start a new game or load a previous save?";
 }
