@@ -1,3 +1,5 @@
+#ifndef DIALOGUE_HPP
+#define DIALOGUE_HPP
 
 #include <iostream>
 #include <fstream>
@@ -22,3 +24,5 @@ class Dialogue{
     int storyLineLength = 0;
 
 };
+
+#endif

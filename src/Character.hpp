@@ -1,3 +1,6 @@
+#ifndef CHARACTER_HPP
+#define CHARACTER_HPP
+
 #include <string>
 
 using namespace std;
@@ -32,3 +35,5 @@ class Character{
         bool levelUp();//LEVELS UP ATTRIBUTES
         void gainGold(int amount);
 };
+
+#endif

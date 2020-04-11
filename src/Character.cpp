@@ -45,8 +45,9 @@ int Character::takeDamage(int amount)
 //Take Damage action using a passed in attack and defense
 int Character::takeDamage(int attack, int defense)
 {
+    int amount = 0;
     int baseAmount = 3;            //Our base amount of damage is 3
-    int amount = (attack - defense) + baseAmount; //Our total amount of damage being dealt is the attack - the defense + the base amount
+    amount = (attack - defense) + baseAmount; //Our total amount of damage being dealt is the attack - the defense + the base amount
     if (amount < 0)
     { //If attack is negative. Use base amount.
         amount = baseAmount;
@@ -79,7 +80,6 @@ bool Character::levelUp()
 {  
     if (this->currentXP >= this->neededXP)
     {
-        bool isLeveling = true;
         this->level = +1;                                           //CHANGES LEVEL
         this->neededXP = this->neededXP + (this->neededXP / 2) + 1; //CHANGES REQUIRED AMOUNT OF XP
 
