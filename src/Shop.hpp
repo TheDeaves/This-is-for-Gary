@@ -1,4 +1,11 @@
-#include "Item.cpp"
+#ifndef SHOP_HPP
+#define SHOP_HPP
+
+#include "Item.hpp"
+
+#include<fstream>
+#include<iostream>
+#include<sstream>
 
 using namespace std;
 
@@ -8,4 +15,7 @@ class Shop{
 
     public:
         Shop();
+        void listItems();
 };
+
+#endif

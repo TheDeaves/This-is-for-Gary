@@ -10,6 +10,7 @@
 #include "Combat.cpp"
 #include "Dialogue.cpp"
 #include "Shop.cpp"
+#include "Item.cpp"
 
 #include<iostream>
 
@@ -236,8 +237,11 @@ while(true){//GAME PLAY LOOP
 			/*story loop maybe for player actions? Moving on map buying gear etc.*/		
 
 		while(shopLoop){
+			Shop s;
+				s.listItems();
+			
 			cout << d.checkGold(playerCharacter.getGold()) << endl;
-
+			
 			shopLoop = false;
 		}
 	

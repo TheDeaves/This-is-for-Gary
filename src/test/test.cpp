@@ -7,6 +7,7 @@
 #include "../Dialogue.hpp"
 #include "../Combat.hpp"
 #include "../Item.hpp"
+#include "../Shop.hpp"
 
 using namespace std;
 
@@ -58,4 +59,10 @@ TEST_CASE("Item Class"){
     Item i("Item1", 10, "weapon");
 
         REQUIRE(i.getName() == "Item1");
+}
+
+TEST_CASE("Shop Class"){
+    Shop s;
+        s.listItems();
+
 }
