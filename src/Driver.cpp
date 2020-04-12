@@ -9,7 +9,7 @@
 #include "Character.cpp"
 #include "Combat.cpp"
 #include "Dialogue.cpp"
-#include "Item.cpp "
+#include "Shop.cpp"
 
 #include<iostream>
 
@@ -20,7 +20,7 @@ int main(){
 	Character playerCharacter;
 	Dialogue d;
 
-	playerCharacter.setAttack(50);
+	playerCharacter.setAttack(50);// H A X
 
 
 	string userMenuInput;//FOR USER INPUT IN MENUS
@@ -28,20 +28,17 @@ int main(){
 
 	bool characterSetupLoop = true;//THE GREAT BOOLEAN WALL OF GAME LOOP MANIPULATION
 	bool mainMenuLoop = true;
-	bool combatLoop = true;
-	bool shopLoop = true;
-	bool mapLoop = true;
+	bool combatLoop = false;
+	bool shopLoop = false;
+	bool mapLoop = false;
 	bool characterLevelUpLoop = false;
-	bool saveLoop = true;
+	bool saveLoop = false;
+	bool errorCatchUserChoice = false;
+	bool campLoop = false;
 	
 
 	string userSetName;
 
-//	cout << d.getNextStory() << endl;
-//		d.incrementStory();
-//	cout << d.getNextStory() << endl;
-
-//	cout << d.getWelcome() << endl;
 
 while(true){//GAME PLAY LOOP
 
@@ -54,7 +51,8 @@ while(true){//GAME PLAY LOOP
 				playerCharacter.Load();
 					d.setCurrentStoryPos(playerCharacter.getCurrentStoryPosForLoad());
 						characterSetupLoop = false;
-							break;
+							mainMenuLoop = false;
+								break;
 		}
 		else{
 				cout << d.getNextStory() << endl;
@@ -99,28 +97,30 @@ while(true){//GAME PLAY LOOP
 	}//END OF SET UP LOOP
 
 	while(true){//START OF USER CHOOSING WHAT TO DO NEXT
-		cout << "What would you like to do? " << endl;
+	d.incrementInGameDay();
+		cout << "Day " << d.getInGameDay() << endl;
+
+		cout << "What would you like to do? " << endl;//USER INPUTS CHOICE, ELSE GETS ERRONEOUS INPUT
 			cin >> playerChoice;
 
 		//STARTING HERE IS THE TREE OF IF() TO LET THE PLAYER CHOOSE WHAT TO DO
 		if(playerChoice.find("fight") != string::npos || playerChoice.find("combat") != string::npos){
-					bool combatLoop = true;
-					bool shopLoop = false;;
-					bool mapLoop = false;
-					bool characterLevelUpLoop = false;
-					bool saveLoop = false;
+			combatLoop = true;
 		}else if(playerChoice.find("save") != string::npos || playerChoice.find("Save") != string::npos){
-					bool combatLoop = false;
-					bool shopLoop = false;;
-					bool mapLoop = false;
-					bool characterLevelUpLoop = false;
-					bool saveLoop = true;
+			saveLoop = true;
+		}else if(playerChoice.find("camp") != string::npos){
+			campLoop = true;
+		}else if(playerChoice.find("shop") != string::npos){
+			shopLoop = true;
+		}else{
+			errorCatchUserChoice = true;
 		}
 
 		while(saveLoop){//SAVE LOOP
 			cout << "Saving..." << endl;
 				playerCharacter.Save(d.getCurrentStoryPos());
 					saveLoop = false;
+						errorCatchUserChoice = false;
 		}//END OF SAVE LOOP
 
 		Combat combat;
@@ -131,14 +131,12 @@ while(true){//GAME PLAY LOOP
 		bool playerBlockedDamage = true;
 		bool levelUp = false;
 
-		d.setCurrentStoryPos(2);//FIXME SHOULDN"T NEED TO SET THIS BUT STORYLINE IS BEHIND
+		while(combatLoop){//COMBAT LOOP
 
 			cout << d.getNextStory() << endl;
 				d.incrementStory();				//TWO LINES FROM STORY FILE PER COMBAT LOOP
 			cout << d.getNextStory() << endl;
 				d.incrementStory();
-
-		while(combatLoop){//COMBAT LOOP
 
 				cout << endl; 
 				cout << endl;//THIS IS FOR FORMATTING
@@ -216,20 +214,40 @@ while(true){//GAME PLAY LOOP
 			if(combat.getTurn() == 50){//BASE CASE TO END FIGHT
 				break;
 			}
-
 		}//END OF COMBAT LOOP
 	
 			/*Maybe add a level up menu and allow the player to choose to level a specific attribute or skill*/	
 		while(characterLevelUpLoop){//LEVEL UP LOOP
 			
+			
+		}//END OF LEVEL UP LOOP
 
+		while(campLoop){
+			playerCharacter.healthMax();
+				cout << d.campHealth() << endl;
+
+				//ADD OPTIONS HERE
+				//MOAR LOOPS
+
+				cout << d.campEndOfDay() << endl;
+					campLoop = false;
 		}
-
-		
 		//STORY LOOP 
 			/*story loop maybe for player actions? Moving on map buying gear etc.*/		
-	}
+
+		while(shopLoop){
+			cout << d.checkGold(playerCharacter.getGold()) << endl;
+
+			shopLoop = false;
+		}
+	
+		while(errorCatchUserChoice){
+			cout << "Nothing happens..." << endl;
+				errorCatchUserChoice = false;
+		}
+
+	}//END OF USER CHOOSE WHAT TO DO NEXT
 
 
-}
+}//END OF GAMEPLAY OVERLOOP
 }

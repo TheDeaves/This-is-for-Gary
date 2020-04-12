@@ -28,6 +28,14 @@ TEST_CASE("Dialogue Class")
     Dialogue d;
 
         REQUIRE(d.getWelcome() == "A dirty man walks out beside you into the desert coliseum and he quickly asks your name...");
+
+        REQUIRE(d.getInGameDay() == 0);
+
+    d.incrementInGameDay();
+    d.incrementInGameDay();
+    d.incrementInGameDay();
+
+        REQUIRE(d.getInGameDay() == 3);
 }
 
 TEST_CASE("Combat Class")

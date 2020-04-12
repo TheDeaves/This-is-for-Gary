@@ -45,6 +45,14 @@ void Dialogue::incrementStory(){
     this->currentStoryPos = this->currentStoryPos + 1;
 }
 
+int Dialogue::getInGameDay(){
+    return this->inGameDay;
+}
+
+void Dialogue::incrementInGameDay(){
+    this->inGameDay = this->inGameDay + 1;
+}
+
 string Dialogue::getWelcome(){
     return "A dirty man walks out beside you into the desert coliseum and he quickly asks your name...";
 }
@@ -63,4 +71,21 @@ string Dialogue::playerChooseBlockDirection(){
 
 string Dialogue::mainMenuPrompt(){
     return "Welcome! Would you like to start a new game or load a previous save?";
+}
+
+string Dialogue::campHealth(){
+    return "You sit by the fire and recover your health.";
+}
+
+string Dialogue::campEndOfDay(){
+    return "The sun sets and you retire for the night.";
+}
+
+string Dialogue::checkGold(int amount){
+    string temp;
+        temp.append("You have ");
+        temp.append(to_string(amount));
+        temp.append(" gold.");
+    
+    return temp;
 }
