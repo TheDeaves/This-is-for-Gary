@@ -4,8 +4,12 @@
 #include "Item.hpp"
 
 #include<fstream>
-#include<iostream>
 #include<sstream>
+#include <stdlib.h>
+#include <stdio.h>
+#include <time.h>
+#include <iostream>
+#include <windows.h>
 
 using namespace std;
 
@@ -16,6 +20,9 @@ class Shop{
     public:
         Shop();
         void listItems();
+        int randomNumberGen();// MOD NUMBER OF ITEMS IN ITEMS.TXT
+        void displayItemForSale();
+
 };
 
 #endif

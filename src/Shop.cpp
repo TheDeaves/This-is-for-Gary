@@ -15,7 +15,7 @@ Shop::Shop(){
             cout << "Items failed to load." << endl;
         }
 
-    while(getline(items, parseByLine)){
+    while(getline(items, parseByLine)){//BUG makes item name the entire line
         istringstream parseByLineStream(parseByLine);
             while(getline(parseByLineStream, parseBySpace)){
                 itemAttributes[i] = parseBySpace;
@@ -32,7 +32,19 @@ Shop::Shop(){
 }
 
 void Shop::listItems(){
-    for(int i = 0; i < 1; i++){
+    for(int i = 0; i < 4; i++){
         cout << shopInventory[i].getName() << endl;
     }
+}
+
+int Shop::randomNumberGen(){
+    srand(time(NULL));
+
+    return rand() % 4;
+}
+
+void Shop::displayItemForSale(){
+    cout << "ITEMS FOR SALE!!!" << endl;
+    cout << "1. " << shopInventory[randomNumberGen()].getName() << " Cost: 50" << endl;
+    cout << "2. " << shopInventory[randomNumberGen()].getName() << " Cost: 50" << endl;
 }

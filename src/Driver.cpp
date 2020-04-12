@@ -171,6 +171,7 @@ while(true){//GAME PLAY LOOP
 										playerCharacter.healthMax();
 											playerCharacter.levelUp(); //Need to look more into leveling
 												//playerCharacter.gainXP(15);
+												playerCharacter.gainGold(50);
 													break; 
 							}
 					}
@@ -216,7 +217,7 @@ while(true){//GAME PLAY LOOP
 				break;
 			}
 		}//END OF COMBAT LOOP
-	
+			combatLoop = false;
 			/*Maybe add a level up menu and allow the player to choose to level a specific attribute or skill*/	
 		while(characterLevelUpLoop){//LEVEL UP LOOP
 			
@@ -238,7 +239,7 @@ while(true){//GAME PLAY LOOP
 
 		while(shopLoop){
 			Shop s;
-				s.listItems();
+				s.displayItemForSale();
 			
 			cout << d.checkGold(playerCharacter.getGold()) << endl;
 			

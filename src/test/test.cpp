@@ -62,7 +62,5 @@ TEST_CASE("Item Class"){
 }
 
 TEST_CASE("Shop Class"){
-    Shop s;
-        s.listItems();
 
 }

@@ -1,6 +1,8 @@
 #ifndef CHARACTER_HPP
 #define CHARACTER_HPP
 
+#include "Item.hpp"
+
 #include<string>
 #include<fstream>
 #include<iostream>
