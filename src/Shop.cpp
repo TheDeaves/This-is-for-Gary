@@ -17,7 +17,7 @@ Shop::Shop(){
 
     while(getline(items, parseByLine)){//BUG makes item name the entire line
         istringstream parseByLineStream(parseByLine);
-            while(getline(parseByLineStream, parseBySpace)){
+            while(getline(parseByLineStream, parseBySpace, ',')){
                 itemAttributes[i] = parseBySpace;
                     i++;
             }
@@ -38,7 +38,7 @@ void Shop::listItems(){
 }
 
 int Shop::randomNumberGen(){
-    srand(time(NULL));
+    srand(rand());
 
     return rand() % 4;
 }

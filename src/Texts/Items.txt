@@ -1,4 +1,4 @@
-Sword 5 weapon
-ChestArmor 2 armor
-Axe 3 weapon
-Helmet 2 armor
+Sword, 5, weapon
+ChestArmor, 2, armor
+Axe, 3, weapon
+Helmet, 2, armor

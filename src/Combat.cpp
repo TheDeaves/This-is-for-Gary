@@ -3,7 +3,7 @@
 using namespace std;
 
 Combat::Combat(){
-    srand(time(0));
+    srand(rand());
         this->randomNum = rand() % 3 + 1;
 }
 
@@ -16,7 +16,7 @@ int Combat::getTurn(){
 }
 
 int Combat::getAnotherRandom(){
-    srand(time(NULL));
+    srand(rand());
         int temp = this->randomNum;
             this->randomNum = rand() % 3 + 1;
            // cout << "FIRST RANDOM: " << this->randomNum << endl;
