@@ -34,33 +34,32 @@ void Tree::insert(Item* item){
 	}
 }
 
-//string Tree::traverse(bool fool){
-// 	return	this->recursiveTraverse(this->root, fool);		
-//}
+string Tree::traverse(bool fool){
+	return	this->recursiveTraverse(this->root, fool);		
+}
 
-//string Tree::RecursiveTraverse(Node* subtreeRoot,bool fool2){
-//	ostringstream os;
+string Tree::recursiveTraverse(Node* subtreeRoot,bool fool2){
+	ostringstream os;
 
-//	if(subtreeRoot == nullptr){
-//		return "";
-//	}
+	if(subtreeRoot == nullptr){
+		return "";
+	}
 
-//	os << this->RecursiveTraverse(subtreeRoot->GetLeft(), fool2);
+	os << this->recursiveTraverse(subtreeRoot->getLeft(), fool2);
 
-	//if(fool2){
-	//	os << subtreeRoot->GetValue()->GetTitle() << ", by " << subtreeRoot->GetValue()->GetAuthor();
-	//	os << "\n\tSubject: " << subtreeRoot->GetValue()->GetSubject();
-	//	os <<"\n\tPublisher: " << subtreeRoot->GetValue()->GetPublisher();
-	//	os <<"\n\t" << subtreeRoot->GetValue()->GetNumber_Available() << " " << subtreeRoot->GetValue()->GetFormat() << " copies available\n";
-	//	
-	//}
-	//else{
-	//	os << subtreeRoot->GetValue()->GetTitle() << endl;
-	//}
-	//	os << this->RecursiveTraverse(subtreeRoot->GetRight(), fool2);
-//
-//	return os.str();
-//}
+	if(fool2){
+		os << "Name of Item: " << subtreeRoot->getValue()->getName() << "\n";
+		os << "Item effect: " << subtreeRoot->getValue()->getEffectAmount() << "\n";
+		os << "Item type: " << subtreeRoot->getValue()->getItemType() << "\n";
+		
+	}
+	else{
+		os << subtreeRoot->getValue()->getName() << endl;
+	}
+		os << this->recursiveTraverse(subtreeRoot->getRight(), fool2);
+
+	return os.str();
+}
 
 
 //Node* Tree::search(string searchValue){

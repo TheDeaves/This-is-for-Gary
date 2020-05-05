@@ -1,6 +1,7 @@
 #define CATCH_CONFIG_MAIN
 
 #include<sstream>
+#include<iostream>
 
 #include "catch/catch.hpp"
 #include "../Character.hpp"
@@ -77,5 +78,23 @@ TEST_CASE("Node Class"){
 }
 
 TEST_CASE("Tree Class"){
+    Tree itemList;
+
+    itemList.insert(new Item("Axe", 500, "weapon"));
+    itemList.insert(new Item("ChestArmor", 1000, "armor"));
+    itemList.insert(new Item("Sword", 250, "weapon"));
+
+    const string traversedTree = "Name of Item: Axe\n"
+                                "Item effect: 500\n"
+                                "Item type: weapon\n"
+                                "Name of Item: ChestArmor\n"
+                                "Item effect: 1000\n"
+                                "Item type: armor\n"
+                                "Name of Item: Sword\n"
+                                "Item effect: 250\n"
+                                "Item type: weapon\n";
+
+    REQUIRE(traversedTree == itemList.traverse());
+
 
 }

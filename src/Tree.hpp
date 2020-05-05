@@ -13,8 +13,8 @@ class Tree{
 public:
 Tree();
 void insert(Item* book);
-//string recursiveTraverse(Item* subtreeRoot, bool fool2 = true);
-//string traverse(bool fool = true);
+string recursiveTraverse(Node* subtreeRoot, bool fool2 = true);
+string traverse(bool fool = true);
 //Node* search(string searchValue);
 //Node* recurseSearch(string searchValue, Node* subtreeRoot);
 Node* getRoot();
