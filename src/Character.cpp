@@ -113,7 +113,7 @@ void Character::gainGold(int amount)
 
 bool Character::Save(int currentStoryPos){
     ofstream saveFile;
-        saveFile.open("save1.txt");
+        saveFile.open("Saves/save1.txt");
 
         if(!saveFile.is_open()){
             cout << "failed! :(" << endl;
@@ -139,13 +139,13 @@ bool Character::Save(int currentStoryPos){
         }
 }
 
-void Character::Load(){
+bool Character::Load(){
     ifstream loadFile;
 
-    loadFile.open("save1.txt");
+    loadFile.open("Saves/save1.txt");
 
     if(!loadFile.is_open()){
-        cout << "failed! :( " << endl;
+        return false;
     }
     else{
         string loadCharacter[10];
@@ -169,5 +169,6 @@ void Character::Load(){
 
         cout << "Success!" << endl;
         cout << this->characterName << endl;
+        return true;
     }
 }

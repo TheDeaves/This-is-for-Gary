@@ -15,8 +15,8 @@ Tree();
 void insert(Item* book);
 string recursiveTraverse(Node* subtreeRoot, bool fool2 = true);
 string traverse(bool fool = true);
-//Node* search(string searchValue);
-//Node* recurseSearch(string searchValue, Node* subtreeRoot);
+Node* search(string searchValue);
+Node* recurseSearch(string searchValue, Node* subtreeRoot);
 Node* getRoot();
 private:
 Node* root;

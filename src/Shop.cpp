@@ -23,18 +23,15 @@ Shop::Shop(){
             }
             stringstream ss(itemAttributes[1]);
         ss >> temp;
-        shopInventory[j]= Item(itemAttributes[0], temp, itemAttributes[2]);
-
+        shopInventory.insert(new Item(itemAttributes[0], temp, itemAttributes[2]));
             i = 0;
                 j++;
     }
-     
+     cout << shopInventory.traverse() << endl;
 }
 
 void Shop::listItems(){
-    for(int i = 0; i < 4; i++){
-        cout << shopInventory[i].getName() << endl;
-    }
+    cout << shopInventory.traverse() << endl;
 }
 
 int Shop::randomNumberGen(){
@@ -45,6 +42,6 @@ int Shop::randomNumberGen(){
 
 void Shop::displayItemForSale(){
     cout << "ITEMS FOR SALE!!!" << endl;
-    cout << "1. " << shopInventory[randomNumberGen()].getName() << " Cost: 50" << endl;
-    cout << "2. " << shopInventory[randomNumberGen()].getName() << " Cost: 50" << endl;
+ //   cout << "1. " << shopInventory[randomNumberGen()].getName() << " Cost: 50" << endl;
+//    cout << "2. " << shopInventory[randomNumberGen()].getName() << " Cost: 50" << endl;
 }

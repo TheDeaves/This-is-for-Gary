@@ -96,5 +96,11 @@ TEST_CASE("Tree Class"){
 
     REQUIRE(traversedTree == itemList.traverse());
 
+    string searchTerm = "Axe";
+
+    Node* temp = itemList.search(searchTerm);
+
+    REQUIRE(temp->getValue()->getName() == searchTerm);
+
 
 }

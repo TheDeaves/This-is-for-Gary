@@ -1,4 +1,4 @@
-#include "tree.hpp"
+#include "Tree.hpp"
 
 #include <iostream>
 
@@ -62,31 +62,31 @@ string Tree::recursiveTraverse(Node* subtreeRoot,bool fool2){
 }
 
 
-//Node* Tree::search(string searchValue){
-//	return this->recurseSearch(searchValue, this->root);
-//}
+Node* Tree::search(string searchValue){
+	return this->recurseSearch(searchValue, this->root);
+}
 
 
-//Node* Tree::recurseSearch(string searchValue, Node* subtreeRoot){
-//
-//	if(subtreeRoot == nullptr){
-//		this->temp = nullptr;
-//		return this->temp;
-//	}
-//	if(subtreeRoot->getValue()->getName() == searchValue){
-//		this->temp = subtreeRoot;
-//		return subtreeRoot;
-//	}
-//		if(subtreeRoot->getLeft() != nullptr || subtreeRoot->getRight() != nullptr){
-//			if(subtreeRoot->getRight() != nullptr){	
-//				return this->temp = this->RecurseSearch(searchValue, subtreeRoot->getRight());
-//			}
-//			else if(subtreeRoot->getLeft() != nullptr){
-//				return this->temp = this->RecurseSearch(searchValue, subtreeRoot->getLeft());
-//			}
-//		}
-//	return nullptr;
-//}
+Node* Tree::recurseSearch(string searchValue, Node* subtreeRoot){
+
+	if(subtreeRoot == nullptr){
+		this->temp = nullptr;
+		return this->temp;
+	}
+	if(subtreeRoot->getValue()->getName() == searchValue){
+		this->temp = subtreeRoot;
+		return subtreeRoot;
+	}
+		if(subtreeRoot->getLeft() != nullptr || subtreeRoot->getRight() != nullptr){
+			if(subtreeRoot->getRight() != nullptr){	
+				return this->temp = this->recurseSearch(searchValue, subtreeRoot->getRight());
+			}
+			else if(subtreeRoot->getLeft() != nullptr){
+				return this->temp = this->recurseSearch(searchValue, subtreeRoot->getLeft());
+			}
+		}
+	return nullptr;
+}
 
 Node* Tree::getRoot(){
 	return this->root;

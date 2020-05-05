@@ -24,6 +24,9 @@ class Character{
         int defense;
         int currentStoryPosForLoad;
 
+        Tree characterInventory;
+        Tree characterEquipped;
+
     public:
         Character();
       //  Character(string getCharacterName, int maxHealth, int currentHealth, int currentXP, int level, int)
@@ -47,7 +50,7 @@ class Character{
 
         //SAVING AND LOADING
         bool Save(int currentStoryPos);
-        void Load();
+        bool Load();
 };
 
 #endif

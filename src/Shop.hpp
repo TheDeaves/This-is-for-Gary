@@ -17,7 +17,7 @@ using namespace std;
 
 class Shop{
     private: 
-        Item shopInventory[20];
+        Tree shopInventory;
 
     public:
         Shop();

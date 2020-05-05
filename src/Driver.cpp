@@ -1,7 +1,7 @@
 //============================================================================
-// Name        : This.cpp
+// Name        : This is for Gary 2020
 // Author      : TheDeaves, Ryley
-// Version     : .01
+// Version     : .06
 // Copyright   : Your copyright notice
 // Description : :candle: Gary
 //============================================================================
@@ -11,6 +11,8 @@
 #include "Dialogue.cpp"
 #include "Shop.cpp"
 #include "Item.cpp"
+#include "Tree.cpp"
+#include "Node.cpp"
 
 #include<iostream>
 
@@ -49,11 +51,15 @@ while(true){//GAME PLAY LOOP
 
 		if(userMenuInput.find('L') != string::npos || userMenuInput.find('l') != string::npos){
 			cout << "Loading..." << endl;
-				playerCharacter.Load();
+				if(playerCharacter.Load()){
 					d.setCurrentStoryPos(playerCharacter.getCurrentStoryPosForLoad());
 						characterSetupLoop = false;
 							mainMenuLoop = false;
 								break;
+				}
+				else{
+					cout << "Loading failed :(" << endl;
+				}
 		}
 		else{
 				cout << d.getNextStory() << endl;
@@ -238,12 +244,12 @@ while(true){//GAME PLAY LOOP
 			/*story loop maybe for player actions? Moving on map buying gear etc.*/		
 
 		while(shopLoop){
-		//	Shop s;
-		//		s.displayItemForSale();
+			Shop s;
+			//	s.displayItemForSale();
 			
 		//	cout << d.checkGold(playerCharacter.getGold()) << endl;
 			
-		//	shopLoop = false;
+			shopLoop = false;
 		}
 	
 		while(errorCatchUserChoice){
