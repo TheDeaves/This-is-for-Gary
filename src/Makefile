@@ -1,7 +1,7 @@
 CXX = g++ #Using g++ compiler 
 CXXFLAGS = -std=c++11 -Wall -ftest-coverage -fprofile-arcs 
 
-OBJECTS = Combat.o Character.o Dialogue.o Item.o Shop.o  # Others as needed
+OBJECTS = Combat.o Character.o Dialogue.o Item.o Shop.o Node.o Tree.o # Others as needed
 
 main: Driver.o $(OBJECTS) #Driver class go here
 	$(CXX) $(CXXFLAGS) -o $@ $^

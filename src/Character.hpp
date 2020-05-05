@@ -2,6 +2,8 @@
 #define CHARACTER_HPP
 
 #include "Item.hpp"
+#include "Node.hpp"
+#include "Tree.hpp"
 
 #include<string>
 #include<fstream>

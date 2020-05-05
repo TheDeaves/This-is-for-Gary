@@ -2,6 +2,8 @@
 #define SHOP_HPP
 
 #include "Item.hpp"
+#include "Node.hpp"
+#include "Tree.hpp"
 
 #include<fstream>
 #include<sstream>

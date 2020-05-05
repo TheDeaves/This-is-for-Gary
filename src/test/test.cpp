@@ -8,6 +8,8 @@
 #include "../Combat.hpp"
 #include "../Item.hpp"
 #include "../Shop.hpp"
+#include "../Node.hpp"
+#include "../Tree.hpp"
 
 using namespace std;
 
@@ -62,5 +64,18 @@ TEST_CASE("Item Class"){
 }
 
 TEST_CASE("Shop Class"){
+
+}
+
+TEST_CASE("Node Class"){
+    Item item;
+    Item *itemPTR = &item;
+    Node n1(itemPTR);
+
+    REQUIRE(n1.getValue()->getName() == item.getName());
+
+}
+
+TEST_CASE("Tree Class"){
 
 }

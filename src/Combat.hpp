@@ -7,6 +7,8 @@
 #include <iostream>
 #include <windows.h>
 
+#include "Item.hpp"
+
 using namespace std;
 
 class Combat{

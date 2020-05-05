@@ -238,12 +238,12 @@ while(true){//GAME PLAY LOOP
 			/*story loop maybe for player actions? Moving on map buying gear etc.*/		
 
 		while(shopLoop){
-			Shop s;
-				s.displayItemForSale();
+		//	Shop s;
+		//		s.displayItemForSale();
 			
-			cout << d.checkGold(playerCharacter.getGold()) << endl;
+		//	cout << d.checkGold(playerCharacter.getGold()) << endl;
 			
-			shopLoop = false;
+		//	shopLoop = false;
 		}
 	
 		while(errorCatchUserChoice){
