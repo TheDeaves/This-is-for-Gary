@@ -11,6 +11,7 @@
 #include "../Shop.hpp"
 #include "../Node.hpp"
 #include "../Tree.hpp"
+#include "../DLL.hpp"
 
 using namespace std;
 
@@ -102,5 +103,20 @@ TEST_CASE("Tree Class"){
 
     REQUIRE(temp->getValue()->getName() == searchTerm);
 
+
+}
+
+TEST_CASE("DLL Class"){
+    DLL dll;
+
+    dll.push(new Item("Axe", 500, "weapon"));
+    dll.push(new Item("ChestArmor", 1000, "armor"));
+    dll.push(new Item("Sword", 250, "weapon"));
+
+    REQUIRE(dll.searchItemByName("Axe")->getValue()->getName() == "Axe");
+
+    REQUIRE(dll.searchItemByName("Macaroni") == nullptr);
+
+    
 
 }

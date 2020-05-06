@@ -13,6 +13,7 @@
 #include "Item.cpp"
 #include "Tree.cpp"
 #include "Node.cpp"
+#include "DLL.cpp"
 
 #include<iostream>
 
@@ -251,6 +252,10 @@ while(true){//GAME PLAY LOOP
 			
 			shopLoop = false;
 		}
+
+		//while(){
+		//	HELP, TELLS PLAYER WHAT THEIR CHOICES ARE
+		//}
 	
 		while(errorCatchUserChoice){
 			cout << "Nothing happens..." << endl;

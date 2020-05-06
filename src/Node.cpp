@@ -8,6 +8,8 @@ Node::Node(Item* b1){
 	this->payload = b1;
 	this->left = nullptr;
 	this->right = nullptr;
+    this->next = nullptr;
+    this->prev = nullptr;
 }
 
 Node* Node::getLeft(){
@@ -24,6 +26,22 @@ Node* Node::getRight(){
 
 void Node::setRight(Node* right){
 	this->right = right;
+}
+
+void Node::setNext(Node* next){
+    this->next = next;
+}
+
+Node* Node::getNext(){
+    return this->next;
+}
+
+void Node::setPrev(Node* prev){
+    this->prev = prev;
+}
+
+Node* Node::getPrev(){
+    return this->prev;
 }
 
 void Node::setValue(Item* payload){
