@@ -17,9 +17,9 @@ void DLL::push(Item* item){
     this->head = newnode;
 }
 
-Item* DLL::pop(){
-
-}
+//Item* DLL::pop(){
+//
+//}
 
 string DLL::displayList(){
     ostringstream temp;
@@ -42,4 +42,15 @@ Node* DLL::searchItemByName(string searchkey){
         }
 
     return nullptr;
+}
+
+Node* DLL::convertFromDLLtoTree(Node* node){
+    Node* temp;
+        temp->setValue(node->getValue());
+        temp->setPrev(nullptr);
+        temp->setNext(nullptr);
+
+    delete node;
+
+    return temp;
 }

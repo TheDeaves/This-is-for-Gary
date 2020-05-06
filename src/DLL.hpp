@@ -13,9 +13,10 @@ class DLL{
     public:
         DLL();
         void push(Item* item);//INSERT AT HEAD
-        Item* pop();//TAKE FROM HEAD AND DELETE
+       // Item* pop();//TAKE FROM HEAD AND DELETE
         string displayList();
         Node* searchItemByName(string searchkey);
+        Node* convertFromDLLtoTree(Node* node);
     private:
         Node* head = nullptr;
 
