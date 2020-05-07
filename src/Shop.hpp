@@ -24,6 +24,7 @@ class Shop{
         void listItems();
         int randomNumberGen();// MOD NUMBER OF ITEMS IN ITEMS.TXT
         void displayItemForSale();
+        void setItemLevel(Node* node, int characterLevel);
 
 };
 

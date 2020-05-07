@@ -17,7 +17,9 @@ using namespace std;
 
 TEST_CASE("Character Class")
 {
-    Character c;
+    Character c;//PLAYER
+    Character e;//ENEMY
+
     c.setCharacterName("HELLO");
         REQUIRE(c.getCharacterName() == "HELLO");
 
@@ -26,6 +28,13 @@ TEST_CASE("Character Class")
     c.takeDamage(3);
 
         REQUIRE(c.getCurrentHP() == 12);
+
+    c.takeItemToINV(new Item("Axe", 500, "weapon"));
+    c.takeItemToINV(new Item("ChestArmor", 1000, "armor"));
+    c.takeItemToINV(new Item("Sword", 250, "weapon"));
+
+        REQUIRE(c.displayCharacterINV() == "Sword\nChestArmor\nAxe\n");
+    
 }
 
 TEST_CASE("Dialogue Class")
@@ -46,6 +55,8 @@ TEST_CASE("Dialogue Class")
 TEST_CASE("Combat Class")
 {
     Combat c;
+    Character p;//PLAYER
+    Character e;//ENEMY
 
         REQUIRE(c.getTurn() == 0);
 
@@ -56,6 +67,10 @@ TEST_CASE("Combat Class")
     c.increTurn();
 
         REQUIRE(c.getTurn() == 5);
+
+        REQUIRE(c.blockCheck(1,1));
+
+        REQUIRE(!c.blockCheck(1,3));
 
 }
 

@@ -18,6 +18,7 @@ string traverse(bool fool = true);
 Node* search(string searchValue);
 Node* recurseSearch(string searchValue, Node* subtreeRoot);
 Node* getRoot();
+Node* convertFromTreetoDLL(Node* node);
 private:
 Node* root;
 Node* temp;

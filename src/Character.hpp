@@ -4,6 +4,7 @@
 #include "Item.hpp"
 #include "Node.hpp"
 #include "Tree.hpp"
+#include "DLL.hpp"
 
 #include<string>
 #include<fstream>
@@ -24,8 +25,8 @@ class Character{
         int defense;
         int currentStoryPosForLoad;
 
-        Tree characterInventory;
-        Tree characterEquipped;
+        DLL characterInventory;
+        DLL characterEquipped;
 
     public:
         Character();
@@ -51,6 +52,11 @@ class Character{
         //SAVING AND LOADING
         bool Save(int currentStoryPos);
         bool Load();
+
+        //INVENTORY
+        void takeItemToINV(Item* item);
+        Node* giveItemFromINV(string name);
+        string displayCharacterINV();
 };
 
 #endif

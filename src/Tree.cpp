@@ -91,3 +91,14 @@ Node* Tree::recurseSearch(string searchValue, Node* subtreeRoot){
 Node* Tree::getRoot(){
 	return this->root;
 }
+
+Node* Tree::convertFromTreetoDLL(Node* node){
+	Node* temp;
+		temp->setValue(node->getValue());
+		temp->setLeft(nullptr);
+		temp->setRight(nullptr);
+
+	delete node;
+
+	return temp;
+}

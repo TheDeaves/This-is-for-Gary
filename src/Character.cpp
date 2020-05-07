@@ -172,3 +172,16 @@ bool Character::Load(){
         return true;
     }
 }
+
+void Character::takeItemToINV(Item* item){
+    characterInventory.push(item);
+}
+
+Node* Character::giveItemFromINV(string name){
+    Node* temp = characterInventory.searchItemByName(name);
+        return temp;
+}
+
+string Character::displayCharacterINV(){
+   return characterInventory.displayList();
+}

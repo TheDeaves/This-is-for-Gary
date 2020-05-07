@@ -12,11 +12,14 @@ class Item{
         string getName();
         int getEffectAmount();
         string getItemType();
+        int getilvl();
+        void setilvl(int amount);
 
     private:
         string name;
         int effectAmount;
         string itemType;
+        int ilvl;
 
 };
 

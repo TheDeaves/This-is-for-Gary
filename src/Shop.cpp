@@ -45,3 +45,12 @@ void Shop::displayItemForSale(){
  //   cout << "1. " << shopInventory[randomNumberGen()].getName() << " Cost: 50" << endl;
 //    cout << "2. " << shopInventory[randomNumberGen()].getName() << " Cost: 50" << endl;
 }
+
+void Shop::setItemLevel(Node* node, int characterLevel){
+    int temp;
+
+    temp = node->getValue()->getilvl();
+        temp = temp * characterLevel;
+
+    node->getValue()->setilvl(temp);
+}
