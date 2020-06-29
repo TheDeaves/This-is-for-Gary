@@ -1,7 +1,7 @@
 #ifndef NODE_HPP
 #define NODE_HPP
 
-#include "Item.hpp"
+#include "../Item/Item.hpp"
 using namespace std;
 
 class Node{

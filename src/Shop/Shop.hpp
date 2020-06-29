@@ -1,9 +1,9 @@
 #ifndef SHOP_HPP
 #define SHOP_HPP
 
-#include "Item.hpp"
-#include "Node.hpp"
-#include "Tree.hpp"
+#include "../Item/Item.hpp"
+#include "../DataStructs/Node.hpp"
+#include "../DataStructs/Tree.hpp"
 
 #include<fstream>
 #include<sstream>

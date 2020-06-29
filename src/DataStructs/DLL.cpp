@@ -45,12 +45,12 @@ Node* DLL::searchItemByName(string searchkey){
 }
 
 Node* DLL::convertFromDLLtoTree(Node* node){
-    Node* temp;
-        temp->setValue(node->getValue());
-        temp->setPrev(nullptr);
-        temp->setNext(nullptr);
+    //Node* temp;
+    //    temp->setValue(node->getValue());
+        node->setPrev(nullptr);
+        node->setNext(nullptr);
 
-    delete node;
+    //delete node;
 
-    return temp;
+    return node;
 }

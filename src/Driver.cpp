@@ -6,14 +6,14 @@
 // Description : :candle: Gary
 //============================================================================
 
-#include "Character.cpp"
-#include "Combat.cpp"
-#include "Dialogue.cpp"
-#include "Shop.cpp"
-#include "Item.cpp"
-#include "Tree.cpp"
-#include "Node.cpp"
-#include "DLL.cpp"
+#include "./Character/Character.cpp"
+#include "./Combat/Combat.cpp"
+#include "./Dialogue/Dialogue.cpp"
+#include "./Shop/Shop.cpp"
+#include "./Item/Item.cpp"
+#include "./DataStructs/Tree.cpp"
+#include "./DataStructs/Node.cpp"
+#include "./DataStructs/DLL.cpp"
 
 #include<iostream>
 #include<string>

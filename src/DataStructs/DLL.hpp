@@ -2,7 +2,7 @@
 #define DLL_HPP
 
 #include "Node.hpp"
-#include "Item.hpp"
+#include "../Item/Item.hpp"
 
 #include <string>
 #include <sstream>

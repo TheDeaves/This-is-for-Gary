@@ -1,10 +1,10 @@
 #ifndef CHARACTER_HPP
 #define CHARACTER_HPP
 
-#include "Item.hpp"
-#include "Node.hpp"
-#include "Tree.hpp"
-#include "DLL.hpp"
+#include "../Item/Item.hpp"
+#include "../DataStructs/Node.hpp"
+#include "../DataStructs/Tree.hpp"
+#include "../DataStructs/DLL.hpp"
 
 #include<string>
 #include<fstream>

@@ -34,6 +34,10 @@ TEST_CASE("Character Class")
     c.takeItemToINV(new Item("Sword", 250, "weapon"));
 
         REQUIRE(c.displayCharacterINV() == "Sword\nChestArmor\nAxe\n");
+
+    c.giveItemFromINV("ChestArmor");
+
+        REQUIRE(c.displayCharacterINV() == "Axe\nSword\n");
     
 }
 

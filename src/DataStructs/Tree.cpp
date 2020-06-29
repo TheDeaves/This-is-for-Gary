@@ -93,12 +93,12 @@ Node* Tree::getRoot(){
 }
 
 Node* Tree::convertFromTreetoDLL(Node* node){
-	Node* temp;
-		temp->setValue(node->getValue());
-		temp->setLeft(nullptr);
-		temp->setRight(nullptr);
+	//Node* temp;
+	//	temp->setValue(node->getValue());
+		node->setLeft(nullptr);
+		node->setRight(nullptr);
 
-	delete node;
+	//delete node;
 
-	return temp;
+	return node;
 }

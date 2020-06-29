@@ -7,7 +7,7 @@
 #include <iostream>
 #include <windows.h>
 
-#include "Item.hpp"
+#include "../Item/Item.hpp"
 
 using namespace std;
 
