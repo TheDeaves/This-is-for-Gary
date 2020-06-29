@@ -4,14 +4,14 @@
 #include<iostream>
 
 #include "catch/catch.hpp"
-#include "../Character.hpp"
-#include "../Dialogue.hpp"
-#include "../Combat.hpp"
-#include "../Item.hpp"
-#include "../Shop.hpp"
-#include "../Node.hpp"
-#include "../Tree.hpp"
-#include "../DLL.hpp"
+#include "../Character/Character.hpp"
+#include "../Dialogue/Dialogue.hpp"
+#include "../Combat/Combat.hpp"
+#include "../Item/Item.hpp"
+#include "../Shop/Shop.hpp"
+#include "../DataStructs/Node.hpp"
+#include "../DataStructs/Tree.hpp"
+#include "../DataStructs/DLL.hpp"
 
 using namespace std;
 
